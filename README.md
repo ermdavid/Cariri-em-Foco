@@ -28,7 +28,8 @@ Este projeto consiste em uma página web simples, construída com HTML, CSS e Ja
 - JavaScript
 
 ## Autores
-- Diego Gomes
-- Ermeson David
-- Aline Pereira
-- Fernando Pablo
+
+- Diego Henrique de Oliveira
+- Aline Pereira de Lima
+- Ermeson David dos Santos Silva
+- Fernando Pablo Silva Oliveira
