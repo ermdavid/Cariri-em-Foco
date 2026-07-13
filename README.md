@@ -6,11 +6,11 @@ Projeto desenvolvido na disciplina TBD0016 - Programação para Web, com o objet
 Este projeto consiste em uma página web simples, construída com HTML, CSS e JavaScript, com o intuito de divulgar informações sobre o grupo, seus integrantes e o contexto do projeto.
 
 ## Estrutura do projeto
-- index.html: página inicial
-- integrantes.html: página com os integrantes
-- paginas/css/style.css: estilos do site
-- paginas/js/script.js: scripts JavaScript
-- paginas/img/: imagens utilizadas no projeto
+- `index.html`: página inicial;
+- `paginas/integrantes.html`: página com os integrantes;
+- `css/style.css`: estilos do site;
+- `js/script.js`: scripts JavaScript;
+- `img/`: imagens utilizadas no projeto.
 
 ## Como visualizar
 1. Abra a pasta do projeto no seu computador.
