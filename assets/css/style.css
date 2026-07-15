@@ -1,42 +1,65 @@
 /* Estilos globais */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cinza-claro);
+    color: var(--cinza-escuro);
+    font-family: "Roboto", sans-serif;
+}
+
+a {
+    color: var(--vermelho);
+    text-decoration: none;
 }
 
 /* Cabeçalho */
 header {
     padding: 40px 20px;
-    background-color: #0b3d91;
-    color: white;
+    background-color: var(--preto);
+    color: var(--branco-corpo);
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.8rem;
+header h1 a{
+    font-family: 'Anton', sans-serif;
+    font-size: 4rem;
+    color: var(--branco-corpo);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+header h1 span {
+    color: var(--vermelho);
 }
 
 header p {
-    margin: 10px 0 0;
-    font-size: 1.2rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    /* margin: 10px 0 0; */
+    font-size: 1.3rem;
     font-weight: 300;
+    color: var(--cinza-claro);
 }
 
 /* Navegação */
 nav {
-    background-color: #1e5bbd;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: var(--vermelho);
 }
 
 nav ul {
@@ -50,15 +73,14 @@ nav ul {
 
 nav a {
     display: block;
-    padding: 15px 20px;
-    color: white;
-    font-weight: bold;
+    padding: 15px 30px;
+    color: var(--branco-corpo);
     text-decoration: none;
 }
 
 nav a:hover,
 nav a:focus {
-    background-color: #0b3d91;
+    background-color: var(--cinza-escuro);
 }
 
 /* Conteúdo principal */
@@ -172,8 +194,8 @@ aside a:focus {
 footer {
     margin-top: 50px;
     padding: 30px 20px;
-    background-color: #222;
-    color: #ddd;
+    background-color: var(--preto);
+    color: var(--cinza-claro);
     text-align: center;
 }
 

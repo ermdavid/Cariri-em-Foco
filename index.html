@@ -2,53 +2,44 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Portal de notícias de Juazeiro do Norte e da região do Cariri."
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de notícias da região do Cariri">
 
     <title>Cariri em Foco | Portal de Notícias</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/variaveis.css">
+
     <script src="js/script.js" defer></script>
 </head>
 
 <body>
     <!-- Cabeçalho -->
     <header>
-        <h1>Cariri em Foco</h1>
-        <p>O portal de notícias de Juazeiro do Norte e região</p>
+        <div class="container">
+            <h1><a href="#inicio">CARIRI <span>EM FOCO</span></a></h1>
+            <p>O portal de notícias da região do Cariri</p>
+        </div>
     </header>
 
     <!-- Menu de navegação -->
     <nav aria-label="Menu principal">
-        <ul>
-            <li>
-                <a href="#inicio">Início</a>
-            </li>
-
-            <li>
-                <a href="#cotidiano">Cotidiano</a>
-            </li>
-
-            <li>
-                <a href="#economia">Economia</a>
-            </li>
-
-            <li>
-                <a href="paginas/integrantes.html">Integrantes</a>
-            </li>
-
-            <li>
-                <a href="#contato">Contato</a>
-            </li>
-        </ul>
+        <div>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#política">Política</a></li>
+                <li><a href="#economia">Economia</a></li>
+                <!-- <li><a href="paginas/integrantes.html">Integrantes</a></li> -->
+                <li><a href="#cultura">Cultura</a></li>
+                <li><a href="#meioambiente">Meio Ambiente</a></li>
+                <li><a href="#esportes">Esportes</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Conteúdo principal -->
