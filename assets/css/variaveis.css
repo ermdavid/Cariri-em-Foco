@@ -6,4 +6,12 @@
     --cinza-medio: #666666;
     --cinza-claro: #E2DDD5;
     --branco-corpo: #FFFFFF;
+
+    --overlay-escuro: rgba(0, 0, 0, 0.65);
+
+    --fonte-titulo: 'Anton', sans-serif;
+    --fonte-subtitulo-1: 'Roboto Condensed', sans-serif;
+    --fonte-subtitulo-2: 'Lora', sans-serif;
+    --fonte-corpo: 'Roboto', sans-serif;
+    --fonte-detalhe: 'DM Mono', monospace;
 }
