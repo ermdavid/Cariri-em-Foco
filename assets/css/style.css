@@ -1,103 +1,4 @@
-/* Estilos globais */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
-html {
-    scroll-behavior: smooth;
-}
-
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-body {
-    background-color: var(--cinza-claro);
-    color: var(--cinza-escuro);
-    font-family: var(--fonte-corpo);
-}
-
-a {
-    color: var(--branco-corpo);
-    text-decoration: none;
-}
-
-/* Cabeçalho */
-header {
-    padding: 40px 20px;
-    background-color: var(--preto);
-    color: var(--branco-corpo);
-    text-align: center;
-}
-
-header h1 a{
-    font-family: var(--fonte-titulo);
-    font-size: 4rem;
-    color: var(--branco-corpo);
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-header h1 span {
-    color: var(--vermelho);
-}
-
-header p {
-    font-family: var(--fonte-subtitulo-1);
-    /* margin: 10px 0 0; */
-    font-size: 1.3rem;
-    font-weight: 300;
-    color: var(--cinza-claro);
-}
-
-/* Navegação */
-nav {
-    font-family: var(--fonte-subtitulo-1);
-    text-transform: uppercase;
-    font-weight: 700;
-    background-color: var(--vermelho);
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-nav a {
-    display: block;
-    padding: 15px 30px;
-    color: var(--branco-corpo);
-    text-decoration: none;
-}
-
-nav a:hover,
-nav a:focus {
-    background-color: var(--cinza-escuro);
-}
-
-/* Conteúdo principal */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1300px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-
-/* Seção principal de notícias */
-.conteudo-principal {
-    flex: 2;
-    min-width: 300px;
-}
 
 /* Artigos 
 article {
@@ -108,100 +9,6 @@ article {
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }*/
-
-.secao-destaque {
-    width: 100%;
-    height: 80vh;
-    min-height: 500px;
-
-    background-image: url('../img/chapada_do_araripe.webp');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-
-    color: var(--branco-corpo);
-    overflow: hidden;
-    border-left: 6px solid var(--vermelho);
-}
-
-.secao-destaque::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay-escuro); /* Preto transparente definido nas variáveis */
-    z-index: 1;
-}
-
-.noticia-destaque {
-    position: absolute;
-    bottom: 50px;
-    left: 40px;
-    width: calc(100% - 80px);
-    max-width: 900px;
-    z-index: 2;
-
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    transform: none !important;
-}
-
-.card-conteudo-noticia-destaque {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.categoria-tag {
-    font-family: var(--fonte-detalhe);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--vermelho);
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-}
-
-.noticia-destaque-titulo{
-    font-family: var(--fonte-titulo);
-    font-size: 2.6rem;
-    font-weight: 400;
-    line-height: 1.1;
-    max-width: 850px;
-    margin-bottom: 15px;
-    color: var(--branco-corpo);
-}
-
-.noticia-destaque-resumo{
-    font-family: var(--fonte-corpo);
-    font-weight: 300;
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 700px;
-    color: var(--cinza-claro);
-    margin-bottom: 20px;
-}
-
-.noticia-destaque-meta {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 15px;
-    border-top: 1px solid var(--cinza-medio);
-    padding-top: 15px;
-    font-size: 0.9rem;
-    width: 100%;
-    font-family: var(--fonte-detalhe);
-    color: var(--cinza-medio);
-    margin-top: 10px;
-}
-
-.autor-nome{
-    font-weight: 500;
-    color: var(--branco-corpo)
-}
 
 
 article img {
@@ -278,7 +85,7 @@ aside a:focus {
 }
 
 /* Rodapé */
-footer {
+.footer {
     margin-top: 50px;
     padding: 30px 20px;
     background-color: var(--preto);
@@ -286,7 +93,7 @@ footer {
     text-align: center;
 }
 
-footer p {
+.footer p {
     margin: 8px 0;
 }
 

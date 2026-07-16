@@ -1,0 +1,62 @@
+/* Estilos globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+body {
+    background-color: var(--cinza-claro);
+    color: var(--cinza-escuro);
+    font-family: var(--fonte-corpo);
+}
+
+a {
+    color: var(--branco-corpo);
+    text-decoration: none;
+}
+
+.categoria-tag {
+    font-family: var(--fonte-detalhe);
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--vermelho);
+    letter-spacing: 1.2px;
+}
+
+
+/* Conteúdo principal */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1600px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Seção principal de notícias */
+.layout-noticias {
+    display: grid;
+    grid-template-columns: 3fr 1fr; 
+    gap: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    align-items: start;
+}
+
+.conteudo-principal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    width: 100%;
+}

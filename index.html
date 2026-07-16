@@ -14,6 +14,10 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/variaveis.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/noticia_destaque.css">
+    <link rel="stylesheet" href="assets/css/card-noticia.css">
 
     <script src="js/script.js" defer></script>
 </head>
@@ -50,7 +54,7 @@
                 <div class="card-conteudo-noticia-destaque">
                     <span class="categoria-tag">Meio Ambiente</span>
                     <h2 id="manchete-principal" class="noticia-destaque-titulo">
-                        <a href="#">Chapada do Araripe: Um tesouro natural do Cariri</a>
+                        <a href="#noticia1">Chapada do Araripe: Um tesouro natural do Cariri</a>
                     </h2>
                     <p class="noticia-destaque-resumo">
                         A Chapada do Araripe é uma região de grande importância ecológica e geológica, conhecida por suas formações rochosas únicas e biodiversidade. É um destino popular para ecoturismo e estudos científicos.
@@ -65,63 +69,89 @@
         </section>
 
         <!-- Seção de notícias -->
-        <section class="conteudo-principal">
+        <section class="layout-noticias container">
 
-            
-            <!-- Notícia de cotidiano -->
-            <article id="cotidiano">
-                <img
-                    src="img/chuva.svg"
-                    alt="Imagem ilustrativa representando chuvas"
-                >
+            <section class="conteudo-principal">
+                <!-- Notícia de cotidiano -->
+                <article class="card-noticia">
+                    <div class="card-imagem">
+                        <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
+                    </div>
+                    <div class="card-conteudo">
+                        <span class="categoria-tag">Categoria</span>
+                        <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
+                        <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
+                        <!-- Trocar o caminho quando a página da matéria for criada -->
+                        <footer class="card-noticia-meta">
+                            <span class="autor-nome">Margarida Silva</span>
+                            <span class="divisor">•</span>
+                            <span class="autor-tempo"><i class="icon-clock"></i> 12 horas atrás</span>
+                        </footer>
+                    </div>
+                </article>
 
-                <div class="texto-noticia">
-                    <h3>
-                        Alerta de chuvas intensas para o sul do Ceará
-                        neste fim de semana
-                    </h3>
+                <article class="card-noticia">
+                    <div class="card-imagem">
+                        <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
+                    </div>
+                    <div class="card-conteudo">
+                        <span class="categoria-tag">Categoria</span>
+                        <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
+                        <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
+                        <!-- Trocar o caminho quando a página da matéria for criada -->
+                        <footer class="card-noticia-meta">
+                            <span class="autor-nome">Margarida Silva</span>
+                            <span class="divisor">•</span>
+                            <span class="autor-tempo"><i class="icon-clock"></i> 12 horas atrás</span>
+                        </footer>
+                    </div>
+                </article>
 
-                    <p>
-                        A Defesa Civil alerta para acumulados significativos.
-                        A população deve evitar áreas de risco e acompanhar
-                        os boletins oficiais.
-                    </p>
+                <article class="card-noticia">
+                    <div class="card-imagem">
+                        <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
+                    </div>
+                    <div class="card-conteudo">
+                        <span class="categoria-tag">Categoria</span>
+                        <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
+                        <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
+                        <!-- Trocar o caminho quando a página da matéria for criada -->
+                        <footer class="card-noticia-meta">
+                            <span class="autor-nome">Margarida Silva</span>
+                            <span class="divisor">•</span>
+                            <span class="autor-tempo"><i class="icon-clock"></i> 12 horas atrás</span>
+                        </footer>
+                    </div>
+                </article>
+                
+                <!-- Notícia de economia 
+                <article class="card-noticia" id="economia">
+                    <img
+                        src="img/economia.svg"
+                        alt="Imagem ilustrativa representando a economia"
+                    >
 
-                    <!-- Trocar o caminho quando a página da matéria for criada -->
-                    <a href="#" class="btn-leia-mais">
-                        Ler matéria completa
-                    </a>
-                </div>
-            </article>
+                    <div class="texto-noticia">
+                        <h3>
+                            Crescimento na abertura de pequenos negócios no Cariri
+                        </h3>
 
-            <!-- Notícia de economia -->
-            <article id="economia">
-                <img
-                    src="img/economia.svg"
-                    alt="Imagem ilustrativa representando a economia"
-                >
+                        <p>
+                            O empreendedorismo local ganha força no primeiro
+                            trimestre de 2026, impulsionado por novas linhas
+                            de crédito e pela digitalização.
+                        </p>
 
-                <div class="texto-noticia">
-                    <h3>
-                        Crescimento na abertura de pequenos negócios no Cariri
-                    </h3>
-
-                    <p>
-                        O empreendedorismo local ganha força no primeiro
-                        trimestre de 2026, impulsionado por novas linhas
-                        de crédito e pela digitalização.
-                    </p>
-
-                    <!-- Trocar o caminho quando a página da matéria for criada -->
-                    <a href="#" class="btn-leia-mais">
-                        Ler matéria completa
-                    </a>
-                </div>
-            </article>
-        </section>
+                         Trocar o caminho quando a página da matéria for criada 
+                        <a href="#" class="btn-leia-mais">
+                            Ler matéria completa
+                        </a>
+                    </div>
+                </article>-->
+            </section>
 
         <!-- Barra lateral -->
-        <aside>
+        <aside class="coluna-lateral">
             <section>
                 <h2>Links úteis e parceiros</h2>
 
@@ -178,10 +208,13 @@
                 </ol>
             </section>
         </aside>
+
+        </section>
+
     </main>
 
     <!-- Rodapé -->
-    <footer id="contato">
+    <footer class="footer">
         <p>
             &copy; 2026 Cariri em Foco. Todos os direitos reservados.
         </p>

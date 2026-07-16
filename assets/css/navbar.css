@@ -1,0 +1,57 @@
+
+/* Cabeçalho */
+header {
+    padding: 40px 20px;
+    background-color: var(--preto);
+    color: var(--branco-corpo);
+    text-align: center;
+}
+
+header h1 a{
+    font-family: var(--fonte-titulo);
+    font-size: 4rem;
+    color: var(--branco-corpo);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+header h1 span {
+    color: var(--vermelho);
+}
+
+header p {
+    font-family: var(--fonte-subtitulo-1);
+    /* margin: 10px 0 0; */
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--cinza-claro);
+}
+
+/* Navegação */
+nav {
+    font-family: var(--fonte-subtitulo-1);
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: var(--vermelho);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    display: block;
+    padding: 15px 30px;
+    color: var(--branco-corpo);
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--cinza-escuro);
+}
