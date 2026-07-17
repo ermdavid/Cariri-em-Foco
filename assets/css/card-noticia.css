@@ -28,7 +28,11 @@
 .card-titulo a{
     font-family: var(--fonte-subtitulo-1);
     font-size: 1.2rem;
-    color: var(--cinza-escuro) !important;
+    color: var(--cinza-escuro);
+}
+
+.card-titulo a:hover {
+    color: var(--vermelho);
 }
 
 .card-resumo {

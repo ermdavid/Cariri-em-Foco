@@ -1,6 +1,6 @@
 .secao-destaque {
     width: 100%;
-    height: 80vh;
+    height: 800px;
     min-height: 500px;
 
     background-image: url('../img/chapada-do-araripe.jpg');
@@ -52,10 +52,25 @@
     max-width: 850px;
     margin-bottom: 15px;
     color: var(--branco-corpo);
+    position: relative;
+    text-decoration: none;
 }
 
-.noticia-destaque-titulo::hover{
-    color: var(--vermelho)
+.noticia-destaque-titulo a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px; 
+    width: 100%;
+    height: 2px; 
+    background-color: var(--vermelho);
+    transform: scaleX(0); 
+    transform-origin: left;
+    transition: transform 0.3s ease; 
+}
+
+.noticia-destaque-titulo a:hover::after {
+    transform: scaleX(1); 
 }
 
 .noticia-destaque-resumo{
