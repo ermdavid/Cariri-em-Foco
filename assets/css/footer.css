@@ -1,0 +1,119 @@
+.footer-principal {
+    background-color: var(--preto);
+    color: var(--cinza-claro);
+    padding-top: 40px;
+    margin-top: 50px;
+    font-family: var(--fonte-corpo);
+}
+
+.footer-conteudo {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+}
+
+.coluna-footer {
+    width: 100%;
+}
+
+.coluna-footer h4 {
+    font-size: 1.1rem;
+    color: var(--branco-corpo);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--vermelho);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.logo-footer {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--branco-corpo);
+    margin-bottom: 10px;
+}
+
+.logo-footer span {
+    color: var(--vermelho);
+}
+
+.sobre-footer {
+    font-size: 0.88rem;
+    color: var(--cinza-claro);
+    line-height: 1.5;
+}
+
+.coluna-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.coluna-footer ul li {
+    margin-bottom: 8px;
+}
+
+.coluna-footer a {
+    color: var(--cinza-medio);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.coluna-footer a:hover {
+    color: var(--vermelho);
+    text-decoration: underline;
+}
+
+.coluna-footer a.link-dados {
+    display: inline-block;
+    color: var(--branco-corpo);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.coluna-footer a.link-dados:hover{
+    color: var(--vermelho);
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    border-top: 1px solid var(--cinza-escuro);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--cinza-medio);
+}
+
+.subtexto-creditos {
+    font-size: 0.75rem;
+    color: var(--cinza-medio);
+    margin-top: 5px;
+}
+
+.coluna-footer:nth-child(2),
+.coluna-footer:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
+
+.coluna-footer:nth-child(2) ul,
+.coluna-footer:nth-child(3) ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.coluna-footer:first-child {
+    text-align: left;
+}
