@@ -1,7 +1,7 @@
 
 /* Cabeçalho */
 header {
-    padding: 40px 20px;
+    padding: 80px 20px;
     background-color: var(--preto);
     color: var(--branco-corpo);
     text-align: center;
@@ -31,7 +31,7 @@ header p {
 nav {
     font-family: var(--fonte-subtitulo-1);
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
     background-color: var(--vermelho);
 }
 
@@ -54,4 +54,18 @@ nav a {
 nav a:hover,
 nav a:focus {
     background-color: var(--vermelho-escuro);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
+}
+
+nav a.btn-cariri-dados {
+    color: var(--vermelho-escuro);
+    background-color: var(--branco-corpo);
+    font-weight: 800;
+}
+
+nav a.btn-cariri-dados:hover,
+nav a.btn-cariri-dados:focus {
+    background-color: var(--vermelho-escuro);
+    color: var(--branco-corpo);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
 }
