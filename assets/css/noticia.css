@@ -1,0 +1,104 @@
+.container-noticia {
+    background-color: var(--branco-corpo);
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.conteudo-noticia {
+    max-width: 800px;
+    width: 100%;
+}
+
+.cabecalho-noticia {
+    margin-bottom: 30px;
+    background-color: var(--branco-corpo);
+    text-align: left; 
+}
+
+.categoria-noticia {
+    font-family: var(--fonte-subtitulo-1);
+    color: var(--vermelho);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.titulo-noticia {
+    font-family: var(--fonte-corpo-1);
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: var(--preto);
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+}
+
+.subtitulo-noticia {
+    font-family: var( --fonte-corpo-2);
+    font-size: 1.1rem;
+    color: var(--cinza-medio);
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 25px 0;
+}
+
+.meta-noticia {
+    font-family: var(--fonte-subtitulo-1);
+    font-size: 0.95rem;
+    color: var(--cinza-escuro);
+    border-top: 1px solid var(--cinza-claro);
+    border-bottom: 1px solid var(--cinza-claro);
+    padding: 15px 0;
+}
+
+.meta-noticia span {
+    font-weight: 700;
+    color: var(--cinza-escuro);
+    margin-right: 15px;
+}
+
+.meta-noticia time {
+    font-size: 0.8rem;
+}
+
+.imagem-principal {
+    margin: 0 0 40px 0;
+    width: 100%;
+}
+
+.imagem-principal img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+.imagem-principal figcaption {
+    font-family: var(--fonte-subtitulo-1);
+    font-size: 0.85rem;
+    color: var(--cinza-medio);
+    margin-top: 10px;
+    text-align: right;
+}
+
+.texto-noticia p {
+    font-family: var(--fonte-corpo-1);
+    font-size: 1.1rem;
+    color: var(--preto);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.citacao-noticia {
+    font-family: var(--fonte-corpo-1);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--vermelho);
+    border-left: 4px solid var(--vermelho);
+    padding-left: 20px;
+    margin: 40px 0;
+    line-height: 1.5;
+}
