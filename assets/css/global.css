@@ -18,6 +18,9 @@ body {
     background-color: var(--cinza-claro);
     color: var(--cinza-escuro);
     font-family: var(--fonte-corpo);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -42,6 +45,7 @@ main {
     max-width: 1600px;
     margin: 30px auto;
     padding: 0 20px;
+    flex: 1;
 }
 
 /* Seção principal de notícias */

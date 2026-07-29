@@ -1,0 +1,96 @@
+/* Removemos qualquer limitação de largura do container pai nessa página */
+main {
+    width: 100%;
+}
+
+/* ==========================================
+   HERO FULL-WIDTH (LARGURA TOTAL)
+   ========================================== */
+.hero-dados {
+    width: 100%;
+    background-color: var(--preto, #0d0d0d);
+    color: var(--branco-corpo, #ffffff);
+    padding: 40px 20px 45px;
+    border-bottom: 4px solid var(--vermelho, #B8101F);
+    box-sizing: border-box; /* Garante que o padding não estoure a tela */
+}
+
+/* Container interno que segura e centraliza o texto */
+.hero-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.badge-projeto {
+    display: inline-block;
+    background-color: rgba(184, 16, 31, 0.2);
+    border: 1px solid var(--vermelho, #B8101F);
+    color: var(--vermelho, #B8101F);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+/* Título secundário (h2) com fonte limpa e menor para não brigar com a logo */
+.hero-container h2 {
+    font-family: var(--fonte-subtitulo-1, sans-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    letter-spacing: 0.5px;
+}
+
+.hero-container p {
+    font-family: var(--fonte-subtitulo-1, sans-serif);
+    font-size: 1.05rem;
+    color: var(--cinza-claro, #cccccc);
+    margin: 0 auto 30px auto;
+    max-width: 600px;
+    font-weight: 300;
+}
+
+/* CARDS DE RESUMO */
+.cards-resumo-dados {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card-metrica {
+    background-color: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 16px 20px;
+    flex: 1;
+    min-width: 180px;
+    max-width: 250px;
+    text-align: center;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-metrica:hover {
+    border-color: var(--vermelho, #B8101F);
+    transform: translateY(-2px);
+}
+
+.valor-metrica {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.rotulo-metrica {
+    font-size: 0.75rem;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
