@@ -39,6 +39,7 @@ nav ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    align-items: stretch;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -68,4 +69,10 @@ nav a.btn-cariri-dados:focus {
     background-color: var(--vermelho-escuro);
     color: var(--branco-corpo);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
+}
+
+nav li.ativo a {
+    background-color: var(--vermelho-escuro);
+    color: var(--branco-corpo);
+    font-weight: 800;
 }
