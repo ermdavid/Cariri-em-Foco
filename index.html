@@ -2,182 +2,248 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Portal de notícias de Juazeiro do Norte e da região do Cariri."
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de notícias da região do Cariri">
 
     <title>Cariri em Foco | Portal de Notícias</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/variaveis.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/noticia_destaque.css">
+    <link rel="stylesheet" href="assets/css/card-noticia.css">
+    <link rel="stylesheet" href="assets/css/barra-lateral.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+
     <script src="js/script.js" defer></script>
 </head>
 
 <body>
     <!-- Cabeçalho -->
     <header>
-        <h1>Cariri em Foco</h1>
-        <p>O portal de notícias de Juazeiro do Norte e região</p>
+        <div class="container">
+            <h1><a href="index.html">CARIRI <span>EM FOCO</span></a></h1>
+            <p>O portal de notícias da região do Cariri</p>
+        </div>
     </header>
 
     <!-- Menu de navegação -->
     <nav aria-label="Menu principal">
-        <ul>
-            <li>
-                <a href="#inicio">Início</a>
-            </li>
-
-            <li>
-                <a href="#cotidiano">Cotidiano</a>
-            </li>
-
-            <li>
-                <a href="#economia">Economia</a>
-            </li>
-
-            <li>
-                <a href="paginas/integrantes.html">Integrantes</a>
-            </li>
-
-            <li>
-                <a href="#contato">Contato</a>
-            </li>
-        </ul>
+        <div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#política">Política</a></li>
+                <li><a href="#economia">Economia</a></li>
+                <!-- <li><a href="paginas/integrantes.html">Integrantes</a></li> -->
+                <li><a href="#cultura">Cultura</a></li>
+                <li><a href="#meioambiente">Meio Ambiente</a></li>
+                <li><a href="#esportes">Esportes</a></li>
+                <li><a href="cariri-em-dados.html" class="btn-cariri-dados">Cariri em Dados</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Conteúdo principal -->
     <main id="inicio">
-        <!-- Seção de notícias -->
-        <section class="conteudo-principal">
-            <h2>Últimas notícias</h2>
 
-            <!-- Notícia de cotidiano -->
-            <article id="cotidiano">
-                <img
-                    src="img/chuva.svg"
-                    alt="Imagem ilustrativa representando chuvas"
-                >
-
-                <div class="texto-noticia">
-                    <h3>
-                        Alerta de chuvas intensas para o sul do Ceará
-                        neste fim de semana
-                    </h3>
-
-                    <p>
-                        A Defesa Civil alerta para acumulados significativos.
-                        A população deve evitar áreas de risco e acompanhar
-                        os boletins oficiais.
+        <section class="secao-destaque" aria-labelledby="manchete-principal">
+            <article class="noticia-destaque container">
+                <div class="card-conteudo-noticia-destaque">
+                    <span class="categoria-tag">Meio Ambiente</span>
+                    <h2 id="manchete-principal" class="noticia-destaque-titulo">
+                        <a href="noticia.html">Chapada do Araripe: Um tesouro natural do Cariri</a>
+                    </h2>
+                    <p class="noticia-destaque-resumo">
+                        A Chapada do Araripe é uma região de grande importância ecológica e geológica, conhecida por suas formações rochosas únicas e biodiversidade. É um destino popular para ecoturismo e estudos científicos.
                     </p>
-
-                    <!-- Trocar o caminho quando a página da matéria for criada -->
-                    <a href="#" class="btn-leia-mais">
-                        Ler matéria completa
-                    </a>
-                </div>
-            </article>
-
-            <!-- Notícia de economia -->
-            <article id="economia">
-                <img
-                    src="img/economia.svg"
-                    alt="Imagem ilustrativa representando a economia"
-                >
-
-                <div class="texto-noticia">
-                    <h3>
-                        Crescimento na abertura de pequenos negócios no Cariri
-                    </h3>
-
-                    <p>
-                        O empreendedorismo local ganha força no primeiro
-                        trimestre de 2026, impulsionado por novas linhas
-                        de crédito e pela digitalização.
-                    </p>
-
-                    <!-- Trocar o caminho quando a página da matéria for criada -->
-                    <a href="#" class="btn-leia-mais">
-                        Ler matéria completa
-                    </a>
+                    <footer class="noticia-destaque-meta">
+                        <span class="autor-nome">Carlos Renato</span>
+                        <span class="divisor">•</span>
+                        <span class="autor-tempo"><i class="icon-clock"></i> 4 horas atrás</span>
+                    </footer>
                 </div>
             </article>
         </section>
 
+        <!-- Seção de notícias -->
+        <section class="layout-noticias container">
+
+            <section class="conteudo-principal">
+                <!-- Notícia de cotidiano -->
+                <article class="card-noticia">
+                    <div class="card-imagem">
+                        <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
+                    </div>
+                    <div class="card-conteudo">
+                        <span class="categoria-tag">Categoria</span>
+                        <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
+                        <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
+                        <!-- Trocar o caminho quando a página da matéria for criada -->
+                        <footer class="card-noticia-meta">
+                            <span class="autor-nome">Margarida Silva</span>
+                            <span class="divisor">•</span>
+                            <span class="autor-tempo"><i class="icon-clock"></i> 12 horas atrás</span>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="card-noticia">
+                    <div class="card-imagem">
+                        <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
+                    </div>
+                    <div class="card-conteudo">
+                        <span class="categoria-tag">Categoria</span>
+                        <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
+                        <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
+                        <!-- Trocar o caminho quando a página da matéria for criada -->
+                        <footer class="card-noticia-meta">
+                            <span class="autor-nome">Margarida Silva</span>
+                            <span class="divisor">•</span>
+                            <span class="autor-tempo"><i class="icon-clock"></i> 12 horas atrás</span>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="card-noticia">
+                    <div class="card-imagem">
+                        <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
+                    </div>
+                    <div class="card-conteudo">
+                        <span class="categoria-tag">Categoria</span>
+                        <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
+                        <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
+                        <!-- Trocar o caminho quando a página da matéria for criada -->
+                        <footer class="card-noticia-meta">
+                            <span class="autor-nome">Margarida Silva</span>
+                            <span class="divisor">•</span>
+                            <span class="autor-tempo"><i class="icon-clock"></i> 12 horas atrás</span>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="card-noticia">
+                    <div class="card-imagem">
+                        <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
+                    </div>
+                    <div class="card-conteudo">
+                        <span class="categoria-tag">Categoria</span>
+                        <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
+                        <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
+                        <!-- Trocar o caminho quando a página da matéria for criada -->
+                        <footer class="card-noticia-meta">
+                            <span class="autor-nome">Margarida Silva</span>
+                            <span class="divisor">•</span>
+                            <span class="autor-tempo"><i class="icon-clock"></i> 12 horas atrás</span>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="card-noticia">
+                    <div class="card-imagem">
+                        <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
+                    </div>
+                    <div class="card-conteudo">
+                        <span class="categoria-tag">Categoria</span>
+                        <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
+                        <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
+                        <!-- Trocar o caminho quando a página da matéria for criada -->
+                        <footer class="card-noticia-meta">
+                            <span class="autor-nome">Margarida Silva</span>
+                            <span class="divisor">•</span>
+                            <span class="autor-tempo"><i class="icon-clock"></i> 12 horas atrás</span>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="card-noticia">
+                    <div class="card-imagem">
+                        <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
+                    </div>
+                    <div class="card-conteudo">
+                        <span class="categoria-tag">Categoria</span>
+                        <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
+                        <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
+                        <!-- Trocar o caminho quando a página da matéria for criada -->
+                        <footer class="card-noticia-meta">
+                            <span class="autor-nome">Margarida Silva</span>
+                            <span class="divisor">•</span>
+                            <span class="autor-tempo"><i class="icon-clock"></i> 12 horas atrás</span>
+                        </footer>
+                    </div>
+                </article>
+            </section>
+
         <!-- Barra lateral -->
-        <aside>
-            <section>
-                <h2>Links úteis e parceiros</h2>
-
-                <p>Acesse serviços e instituições da nossa região:</p>
-
-                <ul>
-                    <li>
-                        <a
-                            href="https://www.funceme.br/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Previsão do Tempo — FUNCEME
-                        </a>
-                    </li>
-
-                    <li>
-                        <a
-                            href="https://www.asprac.org.br/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            ASPRAC — Associação de Praças do Cariri
-                        </a>
-                    </li>
-
-                    <li>
-                        <a
-                            href="https://www.juazeiro.ce.gov.br/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Prefeitura de Juazeiro do Norte
-                        </a>
-                    </li>
+        <aside class="coluna-lateral">
+            <section class="bloco-lateral">
+                <h2 class="titulo-lateral">Links úteis e parceiros</h2>
+                <p class="subtitulo-lateral">Acesse serviços e instituições da nossa região:</p>
+                <ul class="lista-parceiros">
+                    <li><a href="https://www.funceme.br/" target="_blank" rel="noopener noreferrer">Previsão do Tempo — FUNCEME</a></li>
+                    <li><a href="https://www.asprac.org.br/" target="_blank" rel="noopener noreferrer"> ASPRAC — Associação de Praças do Cariri</a></li>
+                    <li><a href="https://www.juazeiro.ce.gov.br/" target="_blank" rel="noopener noreferrer">Prefeitura de Juazeiro do Norte</a></li>
                 </ul>
             </section>
 
-            <section class="mais-lidas">
-                <h2>Mais lidas</h2>
-
-                <ol>
+            <section class="bloco-lateral">
+                <h2 class="titulo-lateral">Mais lidas</h2>
+                <ol class="lista-mais-lidas">
                     <li>
-                        <a href="#cotidiano">
-                            Alerta de chuvas intensas para o sul do Ceará
-                        </a>
+                        <a href="#cotidiano"><span class="posicao-numero">1</span>Alerta de chuvas intensas para o sul do Ceará</a>
                     </li>
-
                     <li>
-                        <a href="#economia">
-                            Crescimento de pequenos negócios no Cariri
-                        </a>
+                        <a href="#economia"><span class="posicao-numero">2</span>Crescimento de pequenos negócios no Cariri</a>
                     </li>
                 </ol>
             </section>
         </aside>
+
+        </section>
+
     </main>
 
-    <!-- Rodapé -->
-    <footer id="contato">
-        <p>
-            &copy; 2026 Cariri em Foco. Todos os direitos reservados.
-        </p>
+    <footer class="footer-principal">
+        <div class="footer-conteudo">
+            
+            <div class="coluna-footer sobre">
+                <h3 class="logo-footer">CARIRI <span>EM FOCO</span></h3>
+                <p class="sobre-footer">
+                    O seu portal de notícias da região do Cariri. Informação de qualidade, jornalismo independente e cobertura local.
+                </p>
+            </div>
 
-        <p>
-            Desenvolvido para a disciplina de Programação para Web.
-        </p>
+            <div class="coluna-footer">
+                <h4>Editorias</h4>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Política</a></li>
+                    <li><a href="#">Economia</a></li>
+                    <li><a href="#">Cultura</a></li>
+                    <li><a href="#">Meio Ambiente</a></li>
+                    <li><a href="#">Esportes</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="cariri-em-dados.html" class="link-dados">Cariri em Dados</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-copyright">
+            <p>© 2026 Cariri em Foco. Todos os direitos reservados.</p>
+            <p class="subtexto-creditos">Desenvolvido para as disciplinas de Programação para Web e Projeto Integrado III.</p>
+        </div>
     </footer>
 </body>
 </html>

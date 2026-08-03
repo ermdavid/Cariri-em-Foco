@@ -1,0 +1,19 @@
+:root {
+    --vermelho: #B8101F;
+    --vermelho-escuro: #630810;
+    --preto: #0D0D0D;
+    --verde: #2D6A4F;
+    --cinza-escuro: #1A1A1A;
+    --cinza-medio: #666666;
+    --cinza-claro-2: #66666673;
+    --cinza-claro: #E2DDD5;
+    --branco-corpo: #FFFFFF;
+
+    --overlay-escuro: rgba(0, 0, 0, 0.55);
+
+    --fonte-titulo: 'Anton', sans-serif;
+    --fonte-subtitulo-1: 'Roboto Condensed', sans-serif;
+    --fonte-corpo-1: 'Lora', sans-serif;
+    --fonte-corpo-2: 'Roboto', sans-serif;
+    --fonte-detalhe: 'DM Mono', monospace;
+}
