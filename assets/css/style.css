@@ -96,27 +96,3 @@ aside a:focus {
 .footer p {
     margin: 8px 0;
 }
-
-/* Telas menores */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
-
-    main {
-        flex-direction: column;
-    }
-
-    article {
-        flex-direction: column;
-    }
-
-    article img {
-        width: 100%;
-        height: auto;
-    }
-
-    aside {
-        width: 100%;
-    }
-}
