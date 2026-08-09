@@ -10,6 +10,7 @@ html {
 }
 
 .container {
+    width: 100%;
     max-width: 1600px;
     margin: 0 auto;
 }
@@ -71,9 +72,9 @@ body {
     overflow-x: hidden;
 }
 
-/* Imagens fluidas: nunca ultrapassam a largura do contêiner */
 img {
     max-width: 100%;
+    height: auto;
 }
 
 @media (max-width: 1024px) {
