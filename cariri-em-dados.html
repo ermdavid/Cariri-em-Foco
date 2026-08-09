@@ -29,8 +29,8 @@
     <!-- Cabeçalho -->
     <header>
         <div class="container">
-            <h1><a href="index.html">CARIRI <span>EM FOCO</span></a></h1>
-            <p>O portal de notícias da região do Cariri</p>
+            <h1><a href="index.html">CARIRI <span>EM DADOS</span></a></h1>
+            <p>O portal de inteligência e estatísticas do <strong>Cariri em Foco</strong></p>
         </div>
     </header>
 
@@ -38,14 +38,14 @@
     <nav aria-label="Menu principal">
         <div>
             <ul>
-                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html">Voltar ao Jornal</a></li>
                 <li><a href="#política">Política</a></li>
                 <li><a href="#economia">Economia</a></li>
                 <!-- <li><a href="paginas/integrantes.html">Integrantes</a></li> -->
                 <li><a href="#cultura">Cultura</a></li>
                 <li><a href="#meioambiente">Meio Ambiente</a></li>
                 <li><a href="#esportes">Esportes</a></li>
-                <li><a href="cariri-em-dados.html" class="btn-cariri-dados">Cariri em Dados</a></li>
+                <li class="ativo"><a href="cariri-em-dados.html" class="btn-cariri-dados">Cariri em Dados</a></li>
             </ul>
         </div>
     </nav>
@@ -53,6 +53,82 @@
     <!-- Conteúdo principal -->
     <main id="inicio">
         
+
+        <main class="container-dados">
+
+    <!-- BARRA DE FILTROS -->
+    <section class="painel-filtros">
+        <form id="form-filtros">
+            <div class="campo-filtro">
+                <label for="select-cidade">Município:</label>
+                <select id="select-cidade">
+                    <option value="todas">Todas as Cidades</option>
+                    <option value="Crato">Crato</option>
+                    <option value="Juazeiro do Norte">Juazeiro do Norte</option>
+                    <option value="Barbalha">Barbalha</option>
+                </select>
+            </div>
+            
+            <div class="campo-filtro">
+                <label for="select-crime">Tipo de Crime:</label>
+                <select id="select-crime">
+                    <option value="todos">Todos os Tipos</option>
+                    <option value="Roubo">Roubo</option>
+                    <option value="Furto">Furto</option>
+                </select>
+            </div>
+        </form>
+    </section>
+
+    <!-- CARDS DE RESUMO (KPIs) -->
+    <section class="grid-kpis">
+        <div class="card-kpi">
+            <span class="titulo-kpi">Total de Ocorrências</span>
+            <span class="valor-kpi" id="kpi-total">--</span>
+        </div>
+        <div class="card-kpi">
+            <span class="titulo-kpi">Crime Predominante</span>
+            <span class="valor-kpi" id="kpi-crime-top">--</span>
+        </div>
+        <div class="card-kpi">
+            <span class="titulo-kpi">Cidade com Maior Índice</span>
+            <span class="valor-kpi" id="kpi-cidade-top">--</span>
+        </div>
+    </section>
+
+    <!-- ÁREA DOS GRÁFICOS -->
+    <section class="grid-graficos">
+        <div class="card-grafico">
+            <h3>Ocorrências por Município</h3>
+            <canvas id="graficoCidades"></canvas> <!-- O Chart.js desenha aqui -->
+        </div>
+        <div class="card-grafico">
+            <h3>Distribuição por Tipo de Crime</h3>
+            <canvas id="graficoTipos"></canvas> <!-- O Chart.js desenha aqui -->
+        </div>
+    </section>
+
+    <!-- TABELA DE DADOS -->
+    <section class="secao-tabela">
+        <h3>Detalhamento das Ocorrências</h3>
+        <table class="tabela-dados">
+            <thead>
+                <tr>
+                    <th>Município</th>
+                    <th>Tipo de Crime</th>
+                    <th>Mês/Ano</th>
+                    <th>Total Registrado</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-corpo">
+                <!-- O JavaScript vai preencher as linhas dinamicamente aqui -->
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+
     </main>
 
     <footer class="footer-principal">
@@ -61,7 +137,7 @@
             <div class="coluna-footer sobre">
                 <h3 class="logo-footer">CARIRI <span>EM FOCO</span></h3>
                 <p class="sobre-footer">
-                    O seu portal de notícias da região do Cariri. Informação de qualidade, jornalismo independente e cobertura local.
+                    <p>O seu portal de notícias da região do Cariri. Informação de qualidade, jornalismo independente e cobertura local.</p>
                 </p>
             </div>
 
