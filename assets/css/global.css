@@ -64,3 +64,41 @@ main {
     gap: 20px;
     width: 100%;
 }
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Imagens fluidas: nunca ultrapassam a largura do contêiner */
+img {
+    max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .layout-noticias {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .conteudo-principal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 0 16px;
+        gap: 20px;
+    }
+
+    .conteudo-principal {
+        grid-template-columns: 1fr;
+    }
+
+    .layout-noticias {
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+}
