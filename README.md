@@ -1,6 +1,6 @@
-# Cariri em Foco
+# Cariri em Foco & Cariri em Dados
 
-Portal de notícias da região do Cariri, desenvolvido na disciplina **TBD0016 - Programação para Web**.
+Portal de notícias da região do Cariri, desenvolvido para as disciplinas **TBD0016 - Programação para Web** e **TBD0020 - Projeto Integrado III**.
 
 ## Sobre o projeto
 
@@ -44,7 +44,7 @@ O projeto foi adaptado para funcionar bem em celulares, tablets e computadores, 
 
 ## Autores
 
-- Diego Henrique de Oliveira
 - Aline Pereira de Lima
+- Diego Gomes Pereira
 - Ermeson David dos Santos Silva
 - Fernando Pablo Silva Oliveira
