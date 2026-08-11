@@ -1,4 +1,3 @@
-
 /* Cabeçalho */
 header {
     padding: 80px 20px;
@@ -9,7 +8,7 @@ header {
 
 header h1 a{
     font-family: var(--fonte-titulo);
-    font-size: 4rem;
+    font-size: clamp(2rem, 4vw, 3.2rem);
     color: var(--branco-corpo);
     font-weight: 400;
     text-transform: uppercase;
@@ -21,8 +20,7 @@ header h1 span {
 
 header p {
     font-family: var(--fonte-subtitulo-1);
-    /* margin: 10px 0 0; */
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 2vw, 1.3rem);
     font-weight: 300;
     color: var(--cinza-claro);
 }
@@ -33,6 +31,54 @@ nav {
     text-transform: uppercase;
     font-weight: 600;
     background-color: var(--vermelho);
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-brand {
+    display: none;
+    font-family: var(--fonte-titulo);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--branco-corpo);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    width: 30vw;
+    min-width: 110px;
+    max-width: 180px;
+}
+
+.nav-brand span {
+    color: var(--cinza-claro);
+}
+
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-direction: column;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--branco-corpo);
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 nav ul {
@@ -89,7 +135,7 @@ nav li.ativo a {
 
 @media (max-width: 768px) {
     header {
-        padding: 36px 16px;
+        padding: 50px 16px;
     }
 
     header h1 a {
@@ -100,8 +146,29 @@ nav li.ativo a {
         font-size: 1.05rem;
     }
 
+    .nav-wrapper {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 10px 16px;
+    }
+
+    .nav-brand {
+        display: inline-block;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
     nav ul {
+        display: none;
         flex-direction: column;
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    nav.is-open ul {
+        display: flex;
     }
 
     nav li {
@@ -120,6 +187,18 @@ nav li.ativo a {
 
     nav a.btn-cariri-dados {
         text-align: center;
+    }
+
+    nav.is-open .nav-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    nav.is-open .nav-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    nav.is-open .nav-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
     }
 }
 

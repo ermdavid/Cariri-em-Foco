@@ -3,6 +3,8 @@
     border: 1px solid var(--cinza-claro-2);
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .card-imagem img {
@@ -14,6 +16,7 @@
 
 .card-conteudo {
     padding: 15px;
+    min-width: 0;
 }
 
 .categoria-tag {
@@ -27,7 +30,8 @@
 
 .card-titulo a{
     font-family: var(--fonte-subtitulo-1);
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.35;
     color: var(--cinza-escuro);
 }
 
@@ -41,17 +45,19 @@
     margin-top: 10px;
     margin-bottom: 15px;
     color: var(--cinza-medio);
+    overflow-wrap: anywhere;
 }
 
 .card-noticia-meta {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
     padding-top: 10px;
     width: 100%;
     font-family: var(--fonte-destaque);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--cinza-medio);
 }
 
@@ -68,5 +74,9 @@
 @media (max-width: 480px) {
     .card-imagem img {
         height: 190px;
+    }
+
+    .card-conteudo {
+        padding: 12px;
     }
 }
