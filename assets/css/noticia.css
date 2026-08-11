@@ -102,3 +102,46 @@
     margin: 40px 0;
     line-height: 1.5;
 }
+
+@media (max-width: 1024px) {
+    .container-noticia {
+        width: 92%;
+        padding: 40px 20px;
+    }
+
+    .titulo-noticia {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-noticia {
+        width: 100%;
+        padding: 30px 16px;
+    }
+
+    .titulo-noticia {
+        font-size: 1.7rem;
+    }
+
+    .subtitulo-noticia {
+        font-size: 1rem;
+    }
+
+    .texto-noticia p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .citacao-noticia {
+        font-size: 1.2rem;
+        margin: 28px 0;
+        padding-left: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-noticia {
+        font-size: 1.5rem;
+    }
+}

@@ -54,3 +54,19 @@
     font-size: 0.9rem;
     color: var(--cinza-medio);
 }
+
+@media (max-width: 768px) {
+    .card-imagem img {
+        height: 220px;
+    }
+
+    .card-titulo a {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-imagem img {
+        height: 190px;
+    }
+}

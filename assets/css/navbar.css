@@ -76,3 +76,59 @@ nav li.ativo a {
     color: var(--branco-corpo);
     font-weight: 800;
 }
+
+@media (max-width: 1024px) {
+    header {
+        padding: 50px 20px;
+    }
+
+    header h1 a {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 36px 16px;
+    }
+
+    header h1 a {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1.05rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav li {
+        width: 100%;
+        border-bottom: 1px solid var(--vermelho-escuro);
+    }
+
+    nav li:last-child {
+        border-bottom: none;
+    }
+
+    nav a {
+        padding: 14px 20px;
+        text-align: center;
+    }
+
+    nav a.btn-cariri-dados {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 a {
+        font-size: 1.9rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+}

@@ -1,4 +1,6 @@
 .container-dados {
+    display: block;
+    width: 100%;
     max-width: 1100px;
     margin: 0 auto;
     padding: 40px 20px;
@@ -148,4 +150,50 @@
 
 .tabela-dados tbody tr:hover {
     background-color: #f1f1f1;
+}
+
+.secao-tabela {
+    overflow-x: auto;
+}
+
+@media (max-width: 1024px) {
+    .container-dados {
+        padding: 30px 20px;
+    }
+
+    .grid-graficos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-dados {
+        padding: 24px 16px;
+    }
+
+    #form-filtros {
+        gap: 18px;
+    }
+
+    .grid-kpis {
+        grid-template-columns: 1fr;
+    }
+
+    .valor-kpi {
+        font-size: 1.9rem;
+    }
+
+    .tabela-dados {
+        min-width: 520px;
+    }
+
+    .painel-filtros {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .campo-filtro {
+        min-width: 100%;
+    }
 }
