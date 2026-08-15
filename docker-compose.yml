@@ -3,13 +3,14 @@ services:
     image: postgres:15
     container_name: db
     environment:
-      POSTGRES_DB: cariri_db
+      POSTGRES_DB: db_cariri
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: adminpostgres
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
 
   backend:
     build: ./backend
