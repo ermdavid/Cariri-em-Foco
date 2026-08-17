@@ -7,9 +7,9 @@ from sqlalchemy import create_engine, text
 # 1. Configurações do Banco de Dados 
 DB_USER = os.getenv('DB_USER', 'admin')
 DB_PASSWORD = os.getenv('DB_PASSWORD', 'adminpostgres')
-DB_HOST = os.getenv('DB_HOST', 'localhost')
+DB_HOST = os.getenv('DB_HOST', 'db')
 DB_PORT = os.getenv('DB_PORT', '5432')
-DB_NAME = os.getenv('DB_NAME', 'bd_cariri')
+DB_NAME = os.getenv('DB_NAME', 'db_cariri')
 
 DATABASE_URL = (
     f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"

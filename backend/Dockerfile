@@ -8,6 +8,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+# Dá permissão de execução ao script de entrada
+RUN chmod +x /app/entrypoint.sh
+
 EXPOSE 5000
 
-CMD ["python", "app.py"]
+# Executa o entrypoint.sh em vez de chamar diretamente o app.py
+ENTRYPOINT ["/app/entrypoint.sh"]
