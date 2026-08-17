@@ -14,4 +14,4 @@ RUN chmod +x /app/entrypoint.sh
 EXPOSE 5000
 
 # Executa o entrypoint.sh em vez de chamar diretamente o app.py
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["/app/backend/entrypoint.sh"]
