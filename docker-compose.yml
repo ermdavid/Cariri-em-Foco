@@ -23,8 +23,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./backend:/app
-      - ./database:/app/database  
+      - .:/app
     depends_on:
       db:
         condition: service_healthy

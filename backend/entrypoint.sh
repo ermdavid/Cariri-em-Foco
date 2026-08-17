@@ -6,4 +6,4 @@ python database/seeds.py
 
 # 2. Inicia o servidor Flask
 echo "Iniciando a API Flask..."
-exec python app.py
+exec python backend/app.py
