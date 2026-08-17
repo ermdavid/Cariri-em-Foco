@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <!-- Chart.js para renderização dos gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <link rel="stylesheet" href="assets/css/variaveis.css">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
@@ -43,9 +46,8 @@
             </button>
             <ul id="menu-principal">
                 <li><a href="index.html">Voltar ao Jornal</a></li>
-                <li><a href="#política">Política</a></li>
+                <li><a href="#politica">Política</a></li>
                 <li><a href="#economia">Economia</a></li>
-                <!-- <li><a href="paginas/integrantes.html">Integrantes</a></li> -->
                 <li><a href="#cultura">Cultura</a></li>
                 <li><a href="#meioambiente">Meio Ambiente</a></li>
                 <li><a href="#esportes">Esportes</a></li>
@@ -63,19 +65,14 @@
             <div class="campo-filtro">
                 <label for="select-cidade">Município:</label>
                 <select id="select-cidade">
-                    <option value="todas">Todas as Cidades</option>
-                    <option value="Crato">Crato</option>
-                    <option value="Juazeiro do Norte">Juazeiro do Norte</option>
-                    <option value="Barbalha">Barbalha</option>
+                    <option value="">Carregando municípios...</option>
                 </select>
             </div>
             
             <div class="campo-filtro">
                 <label for="select-crime">Tipo de Crime:</label>
                 <select id="select-crime">
-                    <option value="todos">Todos os Tipos</option>
-                    <option value="Roubo">Roubo</option>
-                    <option value="Furto">Furto</option>
+                    <option value="">Carregando tipos...</option>
                 </select>
             </div>
         </form>
@@ -99,13 +96,13 @@
 
     <!-- ÁREA DOS GRÁFICOS -->
     <section class="grid-graficos">
-        <div class="card-grafico">
+        <div class="card-grafico" style="position: relative; height: 350px;">
             <h3>Ocorrências por Município</h3>
-            <canvas id="graficoCidades"></canvas> <!-- O Chart.js desenha aqui -->
+            <canvas id="graficoCidades"></canvas>
         </div>
-        <div class="card-grafico">
+        <div class="card-grafico" style="position: relative; height: 350px;">
             <h3>Distribuição por Tipo de Crime</h3>
-            <canvas id="graficoTipos"></canvas> <!-- O Chart.js desenha aqui -->
+            <canvas id="graficoTipos"></canvas>
         </div>
     </section>
 
@@ -117,14 +114,21 @@
                 <tr>
                     <th>Município</th>
                     <th>Tipo de Crime</th>
-                    <th>Mês/Ano</th>
-                    <th>Total Registrado</th>
+                    <th>Data/Hora</th>
+                    <th>Detalhes / Meio</th>
                 </tr>
             </thead>
             <tbody id="tabela-corpo">
                 <!-- O JavaScript vai preencher as linhas dinamicamente aqui -->
             </tbody>
         </table>
+
+        <!-- Controles de Paginação -->
+        <div class="paginacao" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+            <button id="btn-anterior" disabled>Anterior</button>
+            <span id="info-pagina">Página 1</span>
+            <button id="btn-proximo">Próximo</button>
+        </div>
     </section>
 
     </main>
