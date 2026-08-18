@@ -133,44 +133,6 @@ def executar_etl(caminho_arquivo):
         map_cat, left_on='CATEGORIA', right_on='nome', how='left'
     ).drop(columns=['nome'])
 
-    # 3. Inserir Ocorrências
-    print('Inserindo ocorrências no banco...')
-    df_ocorrencias = df[[
-        'ocorrencia_id',
-        'municipio_id',
-        'categoria_id',
-        'ais',
-        'data_hora',
-        'dia_da_semana',
-        'periodo',
-        'natureza',
-        'local',
-        'meio_empregado',
-        'quantidade_armas',
-        'quantidade_drogas_kg',
-        'tipo_entorpecente',
-    ]].rename(columns={'ocorrencia_id': 'id'})
-
-    # Limpar strings 'nan' para None (SQL NULL)
-    df_ocorrencias = df_ocorrencias.replace({'nan': None, '': None})
-
-    df_ocorrencias.to_sql(
-        'ocorrencia',
-        con=conn,
-        if_exists='append',
-        index=False,
-        method='multi',
-        chunksize=3000,
-    )
-
-    # Ajustar a sequência da chave primária SERIAL no PostgreSQL
-    conn.execute(
-        text(
-            "SELECT setval('ocorrencia_id_seq', (SELECT MAX(id) FROM"
-            ' ocorrencia));'
-        )
-    )
-
     # 4. Inserir Detalhes das Vítimas (Apenas linhas que contêm informações de vítimas)
     print('Inserindo Detalhes das Vítimas...')
     colunas_vitima = [
