@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fale com a equipe do Cariri em Foco: envie sugestões de pauta, dúvidas, denúncias e propostas de parceria.">
+    <title>Fale Conosco | Cariri em Foco</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/variaveis.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/barra-lateral.css">
+    <link rel="stylesheet" href="../assets/css/contato.css">
+    
+    <script src="../assets/js/script.js" defer></script>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CARIRI <span>EM FOCO</span></a></h1>
+            <p>O portal de notícias da região do Cariri</p>
+        </div>
+    </header>
+    <!-- Menu de navegação -->
+    <nav aria-label="Menu principal">
+        <div class="nav-wrapper">
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="menu-principal">
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../index.html#política">Política</a></li>
+                <li><a href="../index.html#economia">Economia</a></li>
+                <li><a href="integrantes.html">Integrantes</a></li>
+                <li><a href="../index.html#cultura">Cultura</a></li>
+                <li><a href="../index.html#meioambiente">Meio Ambiente</a></li>
+                <li><a href="../index.html#esportes">Esportes</a></li>
+                <li class="ativo"><a href="contato.html">Fale Conosco</a></li>
+                <li><a href="../cariri-em-dados.html" class="btn-cariri-dados">Cariri em Dados</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Conteúdo principal -->
+    <main>
+    <div class="container-contato">
+        <section class="intro-contato">
+            <span class="categoria-tag">Fale Conosco</span>
+            <h2 class="titulo-pagina">Envie uma mensagem para a nossa redação</h2>
+            <p class="subtitulo-pagina">
+                Tem uma sugestão de pauta, uma dúvida, uma denúncia ou quer propor uma parceria com o
+                <strong>Cariri em Foco</strong>? Preencha o formulário abaixo. Nossa equipe lê todas as mensagens
+                e responde pelo e-mail informado.
+            </p>
+        </section>
+        <div class="layout-contato layout-noticias">
+            <section class="painel-formulario">
+                <h2>Formulário de contato</h2>
+                <form id="form-contato" class="form-contato" novalidate>
+                    <div class="campo-form">
+                        <label for="contato-nome">Nome completo</label>
+                        <input
+                            type="text"
+                            id="contato-nome"
+                            name="nome"
+                            autocomplete="name"
+                            placeholder="Como podemos te chamar?"
+                            required
+                            aria-describedby="erro-nome">
+                        <span class="erro-campo" id="erro-nome" aria-live="polite"></span>
+                    </div>
+                    <div class="campo-form">
+                        <label for="contato-email">E-mail</label>
+                        <input
+                            type="email"
+                            id="contato-email"
+                            name="email"
+                            autocomplete="email"
+                            placeholder="seuemail@exemplo.com"
+                            required
+                            aria-describedby="erro-email">
+                        <span class="erro-campo" id="erro-email" aria-live="polite"></span>
+                    </div>
+                    <div class="campo-form">
+                        <label for="contato-telefone">Telefone <span class="campo-opcional">(opcional)</span></label>
+                        <input
+                            type="tel"
+                            id="contato-telefone"
+                            name="telefone"
+                            autocomplete="tel"
+                            placeholder="(88) 90000-0000"
+                            aria-describedby="erro-telefone">
+                        <span class="erro-campo" id="erro-telefone" aria-live="polite"></span>
+                    </div>
+                    <div class="campo-form">
+                        <label for="contato-assunto">Assunto</label>
+                        <select id="contato-assunto" name="assunto" required aria-describedby="erro-assunto">
+                            <option value="">Selecione um assunto</option>
+                            <option value="sugestao">Sugestão de pauta</option>
+                            <option value="duvida">Dúvida sobre uma matéria</option>
+                            <option value="denuncia">Denúncia / Reclamação</option>
+                            <option value="parceria">Parceria ou publicidade</option>
+                            <option value="outro">Outro assunto</option>
+                        </select>
+                        <span class="erro-campo" id="erro-assunto" aria-live="polite"></span>
+                    </div>
+                    <div class="campo-form campo-largura-total">
+                        <label for="contato-mensagem">Mensagem</label>
+                        <textarea
+                            id="contato-mensagem"
+                            name="mensagem"
+                            rows="5"
+                            placeholder="Escreva aqui sua mensagem, sugestão ou dúvida..."
+                            required
+                            aria-describedby="erro-mensagem contador-mensagem"></textarea>
+                        <div style="display: flex; justify-content: space-between; gap: 10px;">
+                            <span class="erro-campo" id="erro-mensagem" aria-live="polite"></span>
+                            <span class="contador-mensagem" id="contador-mensagem">0/600 caracteres</span>
+                        </div>
+                    </div>
+                    <div class="campo-form campo-largura-total">
+                        <button type="submit" class="btn-enviar">Enviar mensagem</button>
+                    </div>
+                    <p id="status-formulario" class="status-formulario" role="status" hidden></p>
+                </form>
+            </section>
+            <aside class="coluna-lateral info-contato">
+                <section class="bloco-lateral">
+                    <h2 class="titulo-lateral">Outros canais</h2>
+                    <p class="subtitulo-lateral">Prefere falar direto com a redação? Use um dos canais abaixo:</p>
+                    <ul class="lista-info-contato">
+                        <li>
+                            <span class="rotulo-info">E-mail da redação</span>
+                            <span class="valor-info">redacao@caririemfoco.com.br</span>
+                        </li>
+                        <li>
+                            <span class="rotulo-info">Telefone</span>
+                            <span class="valor-info">(88) 3000-0000</span>
+                        </li>
+                        <li>
+                            <span class="rotulo-info">Endereço</span>
+                            <span class="valor-info">Rua da Redação, 123 — Centro, Crato/CE</span>
+                        </li>
+                        <li>
+                            <span class="rotulo-info">Horário de atendimento</span>
+                            <span class="valor-info">Segunda a sexta, das 8h às 18h</span>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+
+        <section class="secao-faq">
+            <h2>Perguntas frequentes</h2>
+
+            <div class="faq-item">
+                <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="faq-resposta-1">
+                    Quanto tempo leva para receber uma resposta?
+                    <span class="faq-icone" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-resposta" id="faq-resposta-1">
+                    <p>Nossa equipe procura responder todas as mensagens em até 3 dias úteis. Denúncias e dúvidas urgentes têm prioridade na fila de atendimento.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="faq-resposta-2">
+                    Posso sugerir uma pauta sem me identificar?
+                    <span class="faq-icone" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-resposta" id="faq-resposta-2">
+                    <p>Pedimos um nome e e-mail para eventuais retornos, mas você pode usar um apelido. Denúncias sensíveis são tratadas com sigilo pela equipe de redação.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="faq-resposta-3">
+                    Como funciona uma parceria ou publicidade com o Cariri em Foco?
+                    <span class="faq-icone" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-resposta" id="faq-resposta-3">
+                    <p>Selecione o assunto "Parceria ou publicidade" no formulário e descreva sua proposta. Nossa equipe comercial entra em contato para apresentar formatos e valores.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="faq-resposta-4">
+                    Os dados do painel "Cariri em Dados" podem ser usados em pesquisas?
+                    <span class="faq-icone" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-resposta" id="faq-resposta-4">
+                    <p>Sim. Os dados são de origem pública (SSPDS-CE). Para dúvidas sobre metodologia ou uso acadêmico, escreva pelo formulário selecionando o assunto "Dúvida sobre uma matéria".</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+    <footer class="footer-principal">
+        <div class="footer-conteudo">
+            <div class="coluna-footer sobre">
+                <h3 class="logo-footer">CARIRI <span>EM FOCO</span></h3>
+                <p class="sobre-footer">
+                    O seu portal de notícias da região do Cariri. Informação de qualidade, jornalismo independente e cobertura local.
+                </p>
+            </div>
+            <div class="coluna-footer">
+                <h4>Editorias</h4>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../index.html#política">Política</a></li>
+                    <li><a href="../index.html#economia">Economia</a></li>
+                    <li><a href="../index.html#cultura">Cultura</a></li>
+                    <li><a href="../index.html#meioambiente">Meio Ambiente</a></li>
+                    <li><a href="../index.html#esportes">Esportes</a></li>
+                </ul>
+            </div>
+            <div class="coluna-footer">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="contato.html">Fale Conosco</a></li>
+                    <li><a href="integrantes.html">Integrantes</a></li>
+                    <li><a href="../cariri-em-dados.html" class="link-dados">Cariri em Dados</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2026 Cariri em Foco. Todos os direitos reservados.</p>
+            <p class="subtexto-creditos">Desenvolvido para as disciplinas de Programação para Web e Projeto Integrado III.</p>
+        </div>
+    </footer>
+</body>
+</html>
