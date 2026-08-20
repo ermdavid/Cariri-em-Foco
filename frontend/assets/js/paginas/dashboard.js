@@ -1,37 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('nav');
-    const toggle = document.querySelector('.nav-toggle');
-
-    if (!nav || !toggle) {
-        return;
-    }
-
-    toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-    });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('nav');
-    const toggle = document.querySelector('.nav-toggle');
-
-    if (!nav || !toggle) {
-        return;
-    }
-
-    toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-    });
-});
-
-
-const API_URL = '/api';
-
 let chartCidades = null;
 let chartTipos = null;
 
@@ -118,14 +84,12 @@ async function carregarKPIs() {
     try {
         const query = obterParametrosFiltro();
 
-        // Total de ocorrências
         const resKpis = await fetch(`${API_URL}/kpis?${query}`);
         const dataKpis = await resKpis.json();
         
         const elTotal = document.getElementById('kpi-total');
         if (elTotal) elTotal.innerText = dataKpis.total_ocorrencias.toLocaleString('pt-BR');
 
-        // Cidade com maior número de ocorrências
         const resMuni = await fetch(`${API_URL}/ocorrencias/municipio?${query}`);
         const dataMuni = await resMuni.json();
         const elCidadeTop = document.getElementById('kpi-cidade-top');
@@ -133,7 +97,6 @@ async function carregarKPIs() {
             elCidadeTop.innerText = dataMuni.length > 0 ? dataMuni[0].municipio : '--';
         }
 
-        // Crime com maior prevalência
         const resCat = await fetch(`${API_URL}/ocorrencias/categoria?${query}`);
         const dataCat = await resCat.json();
         const elCrimeTop = document.getElementById('kpi-crime-top');
@@ -243,7 +206,6 @@ async function carregarTabela() {
             `;
         });
 
-        // Atualiza indicadores de paginação
         const elInfoPagina = document.getElementById('info-pagina');
         if (elInfoPagina) {
             elInfoPagina.innerText = `Página ${data.pagina_atual} de ${data.total_paginas.toLocaleString('pt-BR')}`;

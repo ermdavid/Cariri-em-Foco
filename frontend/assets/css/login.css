@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--cinza-claro);
+    font-family: var(--fonte-corpo-2);
+    color: var(--preto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Botão para retornar ao site principal */
+.btn-voltar {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    text-decoration: none;
+    color: var(--preto);
+    font-family: var(--fonte-subtitulo-1);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+}
+
+.btn-voltar:hover {
+    color: var(--vermelho);
+}
+
+/* Card Container Principal */
+.login-card {
+    background-color: var(--branco-corpo);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--cinza-claro-2);
+    overflow: hidden;
+}
+
+/* Topo do Card */
+.login-header {
+    background-color: var(--preto);
+    padding: 32px 24px 24px;
+    text-align: center;
+    border-bottom: 5px solid var(--vermelho);
+}
+
+.login-header h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--branco-corpo);
+    letter-spacing: 1px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.login-header h1 span {
+    color: var(--vermelho);
+}
+
+.login-header p {
+    font-family: var(--fonte-detalhe);
+    font-size: 0.8rem;
+    color: var(--cinza-claro);
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Formulário */
+.login-body {
+    padding: 32px 28px;
+}
+
+.grupo-campo {
+    margin-bottom: 22px;
+}
+
+.grupo-campo label {
+    display: block;
+    font-family: var(--fonte-subtitulo-1);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--cinza-escuro);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.grupo-campo input {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: var(--fonte-corpo-2);
+    font-size: 0.95rem;
+    color: var(--preto);
+    border: 1.5px solid var(--cinza-claro-2);
+    border-radius: 3px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: var(--branco-corpo);
+}
+
+.grupo-campo input:focus {
+    border-color: var(--vermelho);
+    box-shadow: 0 0 0 3px rgba(184, 16, 31, 0.15);
+}
+
+/* Caixa de Mensagem de Erro */
+.mensagem-erro {
+    display: none;
+    background-color: rgba(184, 16, 31, 0.08);
+    color: var(--vermelho-escuro);
+    border: 1px solid var(--vermelho);
+    padding: 10px 14px;
+    border-radius: 3px;
+    font-family: var(--fonte-corpo-2);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Botão Acessar */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--vermelho);
+    color: var(--branco-corpo);
+    border: none;
+    border-radius: 3px;
+    font-family: var(--fonte-subtitulo-1);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--vermelho-escuro);
+}
+
+.btn-submit:active {
+    transform: scale(0.99);
+}
+
+/* Rodapé do Card */
+.login-footer {
+    text-align: center;
+    padding: 16px 28px 24px;
+    font-family: var(--fonte-detalhe);
+    font-size: 0.75rem;
+    color: var(--cinza-medio);
+    border-top: 1px solid var(--cinza-claro-2);
+}
