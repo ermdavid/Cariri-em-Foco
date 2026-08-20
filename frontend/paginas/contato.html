@@ -53,8 +53,129 @@
 
     <!-- Conteúdo principal -->
     <main>
-        <p>O formulário vai entrar aqui na próxima etapa.</p>
-    </main>
+    <div class="container-contato">
+
+        <section class="intro-contato">
+            <span class="categoria-tag">Fale Conosco</span>
+            <h2 class="titulo-pagina">Envie uma mensagem para a nossa redação</h2>
+            <p class="subtitulo-pagina">
+                Tem uma sugestão de pauta, uma dúvida, uma denúncia ou quer propor uma parceria com o
+                <strong>Cariri em Foco</strong>? Preencha o formulário abaixo. Nossa equipe lê todas as mensagens
+                e responde pelo e-mail informado.
+            </p>
+        </section>
+
+        <div class="layout-contato layout-noticias">
+
+            <section class="painel-formulario">
+                <h2>Formulário de contato</h2>
+
+                <form id="form-contato" class="form-contato" novalidate>
+
+                    <div class="campo-form">
+                        <label for="contato-nome">Nome completo</label>
+                        <input
+                            type="text"
+                            id="contato-nome"
+                            name="nome"
+                            autocomplete="name"
+                            placeholder="Como podemos te chamar?"
+                            required
+                            aria-describedby="erro-nome">
+                        <span class="erro-campo" id="erro-nome" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="contato-email">E-mail</label>
+                        <input
+                            type="email"
+                            id="contato-email"
+                            name="email"
+                            autocomplete="email"
+                            placeholder="seuemail@exemplo.com"
+                            required
+                            aria-describedby="erro-email">
+                        <span class="erro-campo" id="erro-email" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="contato-telefone">Telefone <span class="campo-opcional">(opcional)</span></label>
+                        <input
+                            type="tel"
+                            id="contato-telefone"
+                            name="telefone"
+                            autocomplete="tel"
+                            placeholder="(88) 90000-0000"
+                            aria-describedby="erro-telefone">
+                        <span class="erro-campo" id="erro-telefone" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="contato-assunto">Assunto</label>
+                        <select id="contato-assunto" name="assunto" required aria-describedby="erro-assunto">
+                            <option value="">Selecione um assunto</option>
+                            <option value="sugestao">Sugestão de pauta</option>
+                            <option value="duvida">Dúvida sobre uma matéria</option>
+                            <option value="denuncia">Denúncia / Reclamação</option>
+                            <option value="parceria">Parceria ou publicidade</option>
+                            <option value="outro">Outro assunto</option>
+                        </select>
+                        <span class="erro-campo" id="erro-assunto" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo-form campo-largura-total">
+                        <label for="contato-mensagem">Mensagem</label>
+                        <textarea
+                            id="contato-mensagem"
+                            name="mensagem"
+                            rows="5"
+                            placeholder="Escreva aqui sua mensagem, sugestão ou dúvida..."
+                            required
+                            aria-describedby="erro-mensagem contador-mensagem"></textarea>
+                        <div style="display: flex; justify-content: space-between; gap: 10px;">
+                            <span class="erro-campo" id="erro-mensagem" aria-live="polite"></span>
+                            <span class="contador-mensagem" id="contador-mensagem">0/600 caracteres</span>
+                        </div>
+                    </div>
+
+                    <div class="campo-form campo-largura-total">
+                        <button type="submit" class="btn-enviar">Enviar mensagem</button>
+                    </div>
+
+                    <p id="status-formulario" class="status-formulario" role="status" hidden></p>
+
+                </form>
+            </section>
+
+            <aside class="coluna-lateral info-contato">
+                <section class="bloco-lateral">
+                    <h2 class="titulo-lateral">Outros canais</h2>
+                    <p class="subtitulo-lateral">Prefere falar direto com a redação? Use um dos canais abaixo:</p>
+                    <ul class="lista-info-contato">
+                        <li>
+                            <span class="rotulo-info">E-mail da redação</span>
+                            <span class="valor-info">redacao@caririemfoco.com.br</span>
+                        </li>
+                        <li>
+                            <span class="rotulo-info">Telefone</span>
+                            <span class="valor-info">(88) 3000-0000</span>
+                        </li>
+                        <li>
+                            <span class="rotulo-info">Endereço</span>
+                            <span class="valor-info">Rua da Redação, 123 — Centro, Crato/CE</span>
+                        </li>
+                        <li>
+                            <span class="rotulo-info">Horário de atendimento</span>
+                            <span class="valor-info">Segunda a sexta, das 8h às 18h</span>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+
+        </div>
+
+    </div>
+</main>
 
     <footer class="footer-principal">
         <div class="footer-conteudo">
