@@ -392,3 +392,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (contadorMensagem) contadorMensagem.textContent = `0/${MENSAGEM_MAX} caracteres`;
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const perguntas = document.querySelectorAll('.faq-pergunta');
+    if (!perguntas.length) {
+        return;
+    }
+
+    perguntas.forEach((botao) => {
+        botao.addEventListener('click', () => {
+            const item = botao.closest('.faq-item');
+            const resposta = document.getElementById(botao.getAttribute('aria-controls'));
+            const abrindo = botao.getAttribute('aria-expanded') !== 'true';
+
+            botao.setAttribute('aria-expanded', String(abrindo));
+            item?.classList.toggle('faq-item-aberto', abrindo);
+
+            if (resposta) {
+                resposta.style.maxHeight = abrindo ? `${resposta.scrollHeight}px` : null;
+            }
+        });
+    });
+});
