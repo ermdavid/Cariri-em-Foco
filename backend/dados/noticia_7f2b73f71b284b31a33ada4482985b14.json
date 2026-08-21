@@ -1,0 +1,12 @@
+{
+    "titulo": "Teste no formulário",
+    "subtitulo": "Teste v2",
+    "resumo": "Esse é um teste no formulário https.",
+    "palavrasChaves": [
+        "Vscode"
+    ],
+    "conteudo": "Um teste quase final para avaliar o https.",
+    "tipoNoticia": "economia",
+    "status": "publicado",
+    "imagemUrl": "/imagens/9e296a8d-a0fa-4e00-96eb-f9bb97245262.jpg"
+}

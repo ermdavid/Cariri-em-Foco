@@ -1,0 +1,12 @@
+{
+    "titulo": "Teste1",
+    "subtitulo": "Teste",
+    "resumo": "MMMM",
+    "palavrasChaves": [
+        "mmmm"
+    ],
+    "conteudo": "mmmmmmmmm",
+    "tipoNoticia": "política",
+    "status": "publicado",
+    "imagemUrl": "/api/imagens/c7ed5ef8-9f28-48c8-a775-3f5785ec42d5.webp"
+}

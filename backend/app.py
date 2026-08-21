@@ -1,8 +1,14 @@
 import os
 import math
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from sqlalchemy import create_engine, text
+#cadastro de noticias
+import re
+import uuid
+import json
+import base64
+import secrets
 
 app = Flask(__name__)
 
@@ -21,6 +27,31 @@ DB_NAME = os.getenv('DB_NAME', 'db_cariri')
 
 DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+TOKENS_ATIVOS = set()
+ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', 'redacao@caririemfoco.com.br')
+ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD', 'admin123')
+
+
+@app.route('/api/auth/login', methods=['POST'])
+def autenticar_redator():
+    dados = request.get_json() or {}
+    email = dados.get('email', '').strip()
+    senha = dados.get('senha', '')
+
+    if email != ADMIN_EMAIL or senha != ADMIN_PASSWORD:
+        return jsonify({'erro': 'E-mail ou senha incorretos.'}), 401
+
+    token = secrets.token_urlsafe(32)
+    TOKENS_ATIVOS.add(token)
+    return jsonify({
+        'token': token,
+        'usuario': {'email': ADMIN_EMAIL, 'perfil': 'redator'}
+    }), 200
+
+
+def usuario_autenticado():
+    autorizacao = request.headers.get('Authorization', '')
+    return autorizacao.startswith('Bearer ') and autorizacao[7:] in TOKENS_ATIVOS
 
 
 # 1. GET /api/filtros (Lista municípios e categorias)
@@ -215,5 +246,104 @@ def ocorrencias_detalhada():
     }), 200
 
 
+#Noticias
+# Configuração dos caminhos dentro do contêiner Linux do Docker
+PASTA_IMAGENS = "/app/backend/imagens"
+PASTA_DADOS = "/app/backend/dados"
+
+# Garante que as pastas existam no servidor
+os.makedirs(PASTA_IMAGENS, exist_ok=True)
+os.makedirs(PASTA_DADOS, exist_ok=True)
+
+@app.route('/api/noticias', methods=['POST'])
+def salvar_noticia():
+    if not usuario_autenticado():
+        return jsonify({'erro': 'Autenticação necessária.'}), 401
+
+    dados = request.get_json()
+    
+    if not dados:
+        return jsonify({"erro": "Dados JSON inválidos"}), 400
+
+    # 1. Tratamento da Imagem Base64
+    imagem_base64 = dados.get('imagem')
+    url_imagem_salva = None
+
+    if imagem_base64:
+        # Separa o cabeçalho "data:image/png;base64," dos dados puros
+        if "," in imagem_base64:
+            cabecalho, dados_puros = imagem_base64.split(",", 1)
+        else:
+            cabecalho, dados_puros = "", imagem_base64
+
+        # Identifica a extensão do arquivo
+        extensao = ".jpg"
+        if "image/png" in cabecalho:
+            extensao = ".png"
+        elif "image/gif" in cabecalho:
+            extensao = ".gif"
+        elif "image/webp" in cabecalho:
+            extensao = ".webp"
+
+        # Decodifica os bytes da imagem
+        bytes_imagem = base64.b64decode(dados_puros)
+        
+        # Gera um nome de arquivo único
+        nome_arquivo = f"{uuid.uuid4()}{extensao}"
+        caminho_completo_imagem = os.path.join(PASTA_IMAGENS, nome_arquivo)
+        
+        # Salva o arquivo físico no disco do servidor
+        with open(caminho_completo_imagem, "wb") as f:
+            f.write(bytes_imagem)
+            
+        url_imagem_salva = f"/api/imagens/{nome_arquivo}"
+
+    # 2. Monta a estrutura final da notícia para salvar
+    nova_noticia = {
+        "titulo": dados.get('Titulo'),
+        "subtitulo": dados.get('Subtitulo'),
+        "resumo": dados.get('Resumo'),
+        "palavrasChaves": dados.get('palavrasChaves', []),
+        "conteudo": dados.get('Conteúdo'),
+        "tipoNoticia": dados.get('Categoria'),
+        "status": dados.get('status', 'rascunho'),
+        "imagemUrl": url_imagem_salva
+    }
+
+    # 3. Salva a notícia em um arquivo JSON local
+    nome_arquivo_json = f"noticia_{uuid.uuid4().hex}.json"
+    caminho_completo_json = os.path.join(PASTA_DADOS, nome_arquivo_json)
+    
+    with open(caminho_completo_json, "w", encoding="utf-8") as f:
+        json.dump(nova_noticia, f, ensure_ascii=False, indent=4)
+
+    return jsonify({"mensagem": "Notícia processada com sucesso!", "dados": nova_noticia}), 201
+
+@app.route('/api/noticias', methods=['GET'])
+def listar_noticias():
+    noticias = []
+
+    for nome_arquivo in os.listdir(PASTA_DADOS):
+        if not nome_arquivo.endswith('.json'):
+            continue
+
+        caminho = os.path.join(PASTA_DADOS, nome_arquivo)
+        try:
+            with open(caminho, 'r', encoding='utf-8') as arquivo:
+                noticia = json.load(arquivo)
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        if noticia.get('status') == 'publicado':
+            noticia['id'] = nome_arquivo.removesuffix('.json')
+            noticias.append(noticia)
+
+    noticias.sort(key=lambda noticia: noticia['id'], reverse=True)
+    return jsonify(noticias), 200
+
+@app.route('/api/imagens/<path:nome_arquivo>', methods=['GET'])
+def obter_imagem(nome_arquivo):
+    return send_from_directory(PASTA_IMAGENS, nome_arquivo)
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)

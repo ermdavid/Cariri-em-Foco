@@ -1,0 +1,14 @@
+### Testar a criação de uma nova notícia (Salvar/Publicar)
+POST http://localhost:5000/api/noticias
+Content-Type: application/json
+
+{
+  "Titulo": "Notícia de Teste pelo VS Code",
+  "Subtitulo": "Validando o REST Client",
+  "Resumo": "Este teste simula o envio do JSON diretamente do editor.",
+  "palavrasChaves": ["vscode", "java", "rest-client"],
+  "Conteúdo": "O backend deve receber este texto, decodificar a imagem de 1 pixel e salvar os arquivos.",
+  "Categoria": "Tecnologia",
+  "status": "publicado",
+  "imagem": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+}

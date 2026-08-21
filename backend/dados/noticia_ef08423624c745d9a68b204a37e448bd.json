@@ -1,0 +1,14 @@
+{
+    "titulo": "Notícia de Teste pelo VS Code",
+    "subtitulo": "Validando o REST Client",
+    "resumo": "Este teste simula o envio do JSON diretamente do editor.",
+    "palavrasChaves": [
+        "vscode",
+        "java",
+        "rest-client"
+    ],
+    "conteudo": "O backend deve receber este texto, decodificar a imagem de 1 pixel e salvar os arquivos.",
+    "tipoNoticia": "Tecnologia",
+    "status": "publicado",
+    "imagemUrl": "/imagens/8fca5919-1424-4b4b-9d55-dc2d12f05c0b.png"
+}

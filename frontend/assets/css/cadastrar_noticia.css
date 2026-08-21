@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    background-color:lightgray
+}
+
+#cabecalho{
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#cabecalho h1{
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+#cabecalho h1 span{
+    color:red
+}
+
+#cabecalho-cadastro{
+    background-color: red;
+    color: black;
+    padding: 5px;
+    text-align: center;
+}
+
+main{
+    width:100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.campo{
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.campo label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.campo input[type="text"],
+.campo textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button.salvar{
+    background-color: #cfdd11;
+    color: black;
+    padding: 5px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.publicar{
+    background-color: #4CAF50;
+    color: black;
+    padding: 5px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-voltar {
+    top: 24px;
+    left: 24px;
+    text-decoration: none;
+    color: var(--preto);
+    font-family: var(--fonte-subtitulo-1);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+}
+
+.btn-voltar:hover {
+    color: var(--vermelho);
+}

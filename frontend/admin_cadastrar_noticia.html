@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Redator</title>
+    <link rel="stylesheet" href="assets/css/cadastrar_noticia.css">
+</head>
+<body>
+    <header id = "cabecalho">
+        <h1>Cariri <span>em foco</span></h1>
+        <h2>Área do redator</h2>
+    </header>
+    <main>
+        <header id = "cabecalho-cadastro">
+            <h3>Cadastro de Notícias</h3>
+        </header>
+        <form id="formNoticia">
+            <div class=" campo">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+
+                <label for="subtitulo">Subtítulo:</label>
+                <input type="text" id="subtitulo" name="subtitulo(opcional)" required>
+
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" name="autor" required>
+
+                <label for="resumo">Resumo:</label>
+                <textarea id="resumo" name="resumo" required rows="10"></textarea>
+
+                <label for='palavra-chave'>Palavra-chave:</label>
+                <input type="text" id="palavra-chave" name="palavra-chave" required>
+
+                <label for="conteudo">Conteúdo:</label>
+                <textarea id="conteudo" name="conteudo" required rows="60"></textarea>
+
+                <label for='imagem'>Imagem:</label>
+                <input type="file" id="imagem" name="imagem" accept="image/*" required>
+
+                <label for='categoria'>Categoria:</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="">Selecione uma categoria</option>
+                    <option value="política">Política</option>
+                    <option value="economia">Economia</option>
+                    <option value="esporte">Esporte</option>
+                    <option value="cultura">Cultura</option>
+                </select>
+            </div>
+            <button type="submit" class="salvar" data-status="rascunho">Salvar Rascunho</button>
+
+            <button type="submit" class="publicar" data-status="publicado">Publicar Notícia</button>
+        </form>
+
+    </main>
+    <script src="assets/js/cadastro-noticia.js"></script>
+    <footer>
+         <!-- Link para retornar ao portal principal -->
+        <a href="../index.html" class="btn-voltar">
+            ← Voltar ao portal
+        </a>  
+        <p>© 2024 Cariri em Foco. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
