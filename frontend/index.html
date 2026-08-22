@@ -22,6 +22,7 @@
 
     <script src="assets/js/config.js"></script>
     <script src="assets/js/global.js"></script>
+    <script src="assets/js/filtro-noticias.js" defer></script>
 
 <body>
     <!-- Cabeçalho -->
@@ -41,14 +42,13 @@
                 <span></span>
             </button>
             <ul id="menu-principal">
-                <li class="ativo"><a href="index.html">Início</a></li>
-                <li><a href="#política">Política</a></li>
-                <li><a href="#economia">Economia</a></li>
-                <li><a href="paginas/integrantes.html">Integrantes</a></li>
-                <li><a href="#cultura">Cultura</a></li>
-                <li><a href="#meioambiente">Meio Ambiente</a></li>
-                <li><a href="#esportes">Esportes</a></li>
-                <li><a href="paginas/contato.html">Fale Conosco</a></li>
+                <li class="ativo"><a href="index.html" data-categoria="todas" aria-current="page">Início</a></li>
+                <li><a href="index.html" data-categoria="politica">Política</a></li>
+                <li><a href="index.html" data-categoria="economia">Economia</a></li>
+                <li><a href="index.html" data-categoria="cultura">Cultura</a></li>
+                <li><a href="index.html" data-categoria="meio-ambiente">Meio Ambiente</a></li>
+                <li><a href="index.html" data-categoria="esportes">Esportes</a></li>
+                <li><a href="contato.html">Fale Conosco</a></li>
                 <li><a href="cariri-em-dados.html" class="btn-cariri-dados">Cariri em Dados</a></li>
             </ul>
         </div>
@@ -81,12 +81,12 @@
 
             <section class="conteudo-principal">
                 <!-- Notícia de cotidiano -->
-                <article class="card-noticia">
+                <article class="card-noticia" data-categoria="politica">
                     <div class="card-imagem">
                         <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
                     </div>
                     <div class="card-conteudo">
-                        <span class="categoria-tag">Categoria</span>
+                        <span class="categoria-tag">Política</span>
                         <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
                         <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
                         <!-- Trocar o caminho quando a página da matéria for criada -->
@@ -98,12 +98,12 @@
                     </div>
                 </article>
 
-                <article class="card-noticia">
+                <article class="card-noticia" data-categoria="economia">
                     <div class="card-imagem">
                         <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
                     </div>
                     <div class="card-conteudo">
-                        <span class="categoria-tag">Categoria</span>
+                        <span class="categoria-tag">Economia</span>
                         <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
                         <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
                         <!-- Trocar o caminho quando a página da matéria for criada -->
@@ -115,12 +115,12 @@
                     </div>
                 </article>
 
-                <article class="card-noticia">
+                <article class="card-noticia" data-categoria="cultura">
                     <div class="card-imagem">
                         <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
                     </div>
                     <div class="card-conteudo">
-                        <span class="categoria-tag">Categoria</span>
+                        <span class="categoria-tag">Cultura</span>
                         <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
                         <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
                         <!-- Trocar o caminho quando a página da matéria for criada -->
@@ -132,12 +132,12 @@
                     </div>
                 </article>
 
-                <article class="card-noticia">
+                <article class="card-noticia" data-categoria="meio-ambiente">
                     <div class="card-imagem">
                         <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
                     </div>
                     <div class="card-conteudo">
-                        <span class="categoria-tag">Categoria</span>
+                        <span class="categoria-tag">Meio Ambiente</span>
                         <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
                         <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
                         <!-- Trocar o caminho quando a página da matéria for criada -->
@@ -149,12 +149,12 @@
                     </div>
                 </article>
 
-                <article class="card-noticia">
+                <article class="card-noticia" data-categoria="esportes">
                     <div class="card-imagem">
                         <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
                     </div>
                     <div class="card-conteudo">
-                        <span class="categoria-tag">Categoria</span>
+                        <span class="categoria-tag">Esportes</span>
                         <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
                         <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
                         <!-- Trocar o caminho quando a página da matéria for criada -->
@@ -166,12 +166,12 @@
                     </div>
                 </article>
 
-                <article class="card-noticia">
+                <article class="card-noticia" data-categoria="politica">
                     <div class="card-imagem">
                         <img src="assets/img/soldadinho-do-araripe.jpg" alt="Imagem ilustrativa representando chuvas">
                     </div>
                     <div class="card-conteudo">
-                        <span class="categoria-tag">Categoria</span>
+                        <span class="categoria-tag">Política</span>
                         <h2 class="card-titulo"><a href="#">Alerta de chuvas intensas para o sul do Ceará neste fim de semana</a></h2>
                         <p class="card-resumo">A Defesa Civil alerta para acumulados significativos. A população deve evitar áreas de risco e acompanhar os boletins oficiais.</p>
                         <!-- Trocar o caminho quando a página da matéria for criada -->
@@ -203,7 +203,7 @@
                         <a href="#cotidiano"><span class="posicao-numero">1</span>Alerta de chuvas intensas para o sul do Ceará</a>
                     </li>
                     <li>
-                        <a href="#economia"><span class="posicao-numero">2</span>Crescimento de pequenos negócios no Cariri</a>
+                        <a href="index.html?categoria=economia"><span class="posicao-numero">2</span>Crescimento de pequenos negócios no Cariri</a>
                     </li>
                 </ol>
             </section>
@@ -226,21 +226,21 @@
             <div class="coluna-footer">
                 <h4>Editorias</h4>
                 <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Política</a></li>
-                    <li><a href="#">Economia</a></li>
-                    <li><a href="#">Cultura</a></li>
-                    <li><a href="#">Meio Ambiente</a></li>
-                    <li><a href="#">Esportes</a></li>
+                    <li><a href="index.html" data-categoria="todas">Início</a></li>
+                    <li><a href="index.html?categoria=politica" data-categoria="politica">Política</a></li>
+                    <li><a href="index.html?categoria=economia" data-categoria="economia">Economia</a></li>
+                    <li><a href="index.html?categoria=cultura" data-categoria="cultura">Cultura</a></li>
+                    <li><a href="index.html?categoria=meio-ambiente" data-categoria="meio-ambiente">Meio Ambiente</a></li>
+                    <li><a href="index.html?categoria=esportes" data-categoria="esportes">Esportes</a></li>
                 </ul>
             </div>
 
             <div class="coluna-footer">
                 <h4>Institucional</h4>
                 <ul>
-                    <li><a href="#">Fale Conosco</a></li>
                     <li><a href="cariri-em-dados.html" class="link-dados">Cariri em Dados</a></li>
-                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="contato.html">Fale Conosco</a></li>
+                    <li><a href="integrantes.html">Integrantes</a></li>
                     <li><a href="login.html">Área do Redator</a></li>
                 </ul>
             </div>
