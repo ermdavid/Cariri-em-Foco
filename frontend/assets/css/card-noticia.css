@@ -9,6 +9,10 @@
     overflow: hidden;
 }
 
+.card-noticia[hidden] {
+    display: none;
+}
+
 .card-imagem img {
     border-left: solid 3px var(--vermelho);
     width: 100%;
