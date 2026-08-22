@@ -13,6 +13,10 @@
     border-left: 6px solid var(--vermelho);
 }
 
+.secao-destaque[hidden] {
+    display: none;
+}
+
 .secao-destaque::before {
     content: '';
     position: absolute;
