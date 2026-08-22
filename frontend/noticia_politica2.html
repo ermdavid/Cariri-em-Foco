@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de notícias da região do Cariri">
+
+    <title>Cariri em Foco | Portal de Notícias</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/variaveis.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/noticia_destaque.css">
+    <link rel="stylesheet" href="assets/css/card-noticia.css">
+    <link rel="stylesheet" href="assets/css/barra-lateral.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/cariri-em-dados.css">
+    <link rel="stylesheet" href="assets/css/noticia.css">
+
+    <script src="assets/js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1><a href="index.html">CARIRI <span>EM FOCO</span></a></h1>
+            <p>O portal de notícias da região do Cariri</p>
+        </div>
+    </header>
+
+    <!-- Menu de navegação -->
+    <nav aria-label="Menu principal">
+        <div class="nav-wrapper">
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="menu-principal">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#política">Política</a></li>
+                <li><a href="index.html#economia">Economia</a></li>
+                <li><a href="paginas/integrantes.html">Integrantes</a></li>
+                <li><a href="index.html#cultura">Cultura</a></li>
+                <li><a href="index.html#meioambiente">Meio Ambiente</a></li>
+                <li><a href="index.html#esportes">Esportes</a></li>
+                <li><a href="paginas/contato.html">Fale Conosco</a></li>
+                <li><a href="cariri-em-dados.html" class="btn-cariri-dados">Cariri em Dados</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="container-noticia">
+        <article class="conteudo-noticia">
+            
+            <!-- TROCAMOS <header> POR <div> PARA EVITAR O FUNDO PRETO -->
+            <div class="cabecalho-noticia">
+                <span class="categoria-noticia">Politica</span>
+                
+                <h1 class="titulo-noticia">Davi de Raimundão lança candidatura a deputado estadual</h1>
+                
+                <h2 class="subtitulo-noticia">O ato aconteceu em Juazeiro do Norte e reuniu lideranças locais e apoiadores.</h2>
+                
+                <div class="meta-noticia">
+                    <span>Por Redação Cariri em Foco</span>
+                    <time>Atualizado há 12 horas</time>
+                </div>
+            </div>
+
+            <!-- IMAGEM CENTRALIZADA -->
+            <figure class="imagem-principal">
+                <img src="./assets/img/davi.webp" alt="Imagem de Davi">
+                <figcaption>Foto: Imagem gerada por IA</figcaption>
+            </figure>
+
+            <!-- TEXTO DA MATÉRIA -->
+            <div class="texto-noticia">
+                <p>O candidato a deputado estadual <strong>Davi de Raimundão (MDB)</strong> realizou o lançamento de sua candidatura à Assembleia Legislativa do Ceará (Alece), na última quinta-feira (20). O ato aconteceu em Juazeiro do Norte e reuniu lideranças locais e apoiadores.</p>
+
+                <p>Desde 2018 o parlamentar ocupa uma das cadeiras da Alece. Em sua primeira eleição, conquistou  26.484 votos. Segundo Davi, a campanha para o pleito de 2026 será feita “porta a porta”, apresentando os feitos do seu mandato. </p>
+                
+                <blockquote class="citacao-noticia">
+                    "É dessa forma que a gente tem que fazer política. Humildade, andando casa a casa, porque a política para mim é algo bem simples, porque eu já faço todos os dias, eu não faço só em período de eleição". Afirmou o candidato.
+                </blockquote>
+
+            </div>
+            
+        </article>
+    </main>
+
+    <footer class="footer-principal">
+        <div class="footer-conteudo">
+            
+            <div class="coluna-footer sobre">
+                <h3 class="logo-footer">CARIRI <span>EM FOCO</span></h3>
+                <p class="sobre-footer">
+                    O seu portal de notícias da região do Cariri. Informação de qualidade, jornalismo independente e cobertura local.
+                </p>
+            </div>
+
+            <div class="coluna-footer">
+                <h4>Editorias</h4>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Política</a></li>
+                    <li><a href="#">Economia</a></li>
+                    <li><a href="#">Cultura</a></li>
+                    <li><a href="#">Meio Ambiente</a></li>
+                    <li><a href="#">Esportes</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="paginas/contato.html">Fale Conosco</a></li>
+                    <li><a href="paginas/integrantes.html">Integrantes</a></li>
+                    <li><a href="cariri-em-dados.html" class="link-dados">Cariri em Dados</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-copyright">
+            <p>© 2026 Cariri em Foco. Todos os direitos reservados.</p>
+            <p class="subtexto-creditos">Desenvolvido para as disciplinas de Programação para Web e Projeto Integrado III.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -103,6 +103,23 @@
     line-height: 1.5;
 }
 
+.tabela {
+    border-collapse: collapse;
+    text-align: center;
+    width: 50%;
+}
+
+table, th, td {
+  padding: 8px
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.link{
+    color: red
+}
+
+
 @media (max-width: 1024px) {
     .container-noticia {
         width: 92%;

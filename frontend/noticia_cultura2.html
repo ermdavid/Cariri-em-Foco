@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de notícias da região do Cariri">
+
+    <title>Cariri em Foco | Portal de Notícias</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/variaveis.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/noticia_destaque.css">
+    <link rel="stylesheet" href="assets/css/card-noticia.css">
+    <link rel="stylesheet" href="assets/css/barra-lateral.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/cariri-em-dados.css">
+    <link rel="stylesheet" href="assets/css/noticia.css">
+
+    <script src="assets/js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1><a href="index.html">CARIRI <span>EM FOCO</span></a></h1>
+            <p>O portal de notícias da região do Cariri</p>
+        </div>
+    </header>
+
+    <!-- Menu de navegação -->
+    <nav aria-label="Menu principal">
+        <div class="nav-wrapper">
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="menu-principal">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#política">Política</a></li>
+                <li><a href="index.html#economia">Economia</a></li>
+                <li><a href="paginas/integrantes.html">Integrantes</a></li>
+                <li><a href="index.html#cultura">Cultura</a></li>
+                <li><a href="index.html#meioambiente">Meio Ambiente</a></li>
+                <li><a href="index.html#esportes">Esportes</a></li>
+                <li><a href="paginas/contato.html">Fale Conosco</a></li>
+                <li><a href="cariri-em-dados.html" class="btn-cariri-dados">Cariri em Dados</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="container-noticia">
+        <article class="conteudo-noticia">
+            
+            <!-- TROCAMOS <header> POR <div> PARA EVITAR O FUNDO PRETO -->
+            <div class="cabecalho-noticia">
+                <span class="categoria-noticia">Cultura</span>
+                
+                <h1 class="titulo-noticia">Maria Rita leva espetáculo “Redescobrir Vol. 2” à Mostra Sesc Cariri</h1>
+                
+                <h2 class="subtitulo-noticia">Leonardo de Luna também se apresenta neste sábado, em Barbalha</h2>
+                
+                <div class="meta-noticia">
+                    <span>Por Redação Cariri em Foco</span>
+                    <time>Atualizado há 1 horas</time>
+                </div>
+            </div>
+
+            <!-- IMAGEM CENTRALIZADA -->
+            <figure class="imagem-principal">
+                <img src="./assets/img/mariarita.webp" alt="Maria Rita">
+                <figcaption>Foto: Divulgação</figcaption>
+            </figure>
+
+            <!-- TEXTO DA MATÉRIA -->
+            <div class="texto-noticia">
+                <p>Em continuidade à programação da Mostra Sesc, o Parque da Cidade, em Barbalha, recebe, neste sábado (22), o show da cantora Maria Rita. A cantora, compositora e produtora musical sobe ao palco às 20h com o espetáculo Redescobrir Vol. 2. Em seguida, o cantor, compositor e instrumentista caririense Leonardo de Luna apresenta o show A Luz do Meu Forró. As apresentações são gratuitas e abertas ao público.</p>
+                
+                <p>A Mostra Sesc Cariri de Culturas teve início na qiunta-feira (20) e segue até este domingo (23). No decorrer dos dias, os municípios recebem apresentações de espetáculos de teatro, circo, dança, exposições, shows, cafés literários, rodas de conversas, performances artísticas, exibição de filmes, além de ações formativas e expressões da tradição. Por meio da programação, o evento promove o intercâmbio, a pluralidade e uma valiosa troca artística entre os participantes.</p>
+
+                <p>Como avalia o presidente do Sistema Fecomércio Ceará, Luiz Fernando Bittencourt, a Mostra abraça a cultura, aproximando o público dos artistas e de diversas manifestações artísticas, valorizando nomes locais e nacionais em um grande intercâmbio cultural que dá destaque tanto quem produz quanto para quem vivencia a arte. </p>
+
+                <blockquote class="citacao-noticia">
+                    "Trazemos ao público do evento artistas brasileiros de diferentes estilos, linguagens e territórios, em uma programação plural que evidencia a diversidade da produção artística do país, criando oportunidades para que nossos talentos compartilhem sua arte com públicos diversos. Neste ano, Barbalha vai contar com uma programação mais ampla, sendo também um espaço de encontro, de reconhecimento e de celebração dessa riqueza imaterial que temos no Estado e no Brasil, com diversos artistas autênticos da cultura gonzagueana, numa grande celebração da nossa identidade cultural" destaca.
+                </blockquote>
+
+            </div>
+            
+        </article>
+    </main>
+
+    <footer class="footer-principal">
+        <div class="footer-conteudo">
+            
+            <div class="coluna-footer sobre">
+                <h3 class="logo-footer">CARIRI <span>EM FOCO</span></h3>
+                <p class="sobre-footer">
+                    O seu portal de notícias da região do Cariri. Informação de qualidade, jornalismo independente e cobertura local.
+                </p>
+            </div>
+
+            <div class="coluna-footer">
+                <h4>Editorias</h4>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Política</a></li>
+                    <li><a href="#">Economia</a></li>
+                    <li><a href="#">Cultura</a></li>
+                    <li><a href="#">Meio Ambiente</a></li>
+                    <li><a href="#">Esportes</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="paginas/contato.html">Fale Conosco</a></li>
+                    <li><a href="paginas/integrantes.html">Integrantes</a></li>
+                    <li><a href="cariri-em-dados.html" class="link-dados">Cariri em Dados</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-copyright">
+            <p>© 2026 Cariri em Foco. Todos os direitos reservados.</p>
+            <p class="subtexto-creditos">Desenvolvido para as disciplinas de Programação para Web e Projeto Integrado III.</p>
+        </div>
+    </footer>
+</body>
+</html>
