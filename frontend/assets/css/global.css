@@ -102,10 +102,6 @@ img {
         gap: 20px;
     }
 
-    .conteudo-principal {
-        grid-template-columns: 1fr;
-    }
-
     .layout-noticias {
         grid-template-columns: 1fr;
         margin-top: 24px;
@@ -121,5 +117,9 @@ img {
 
     .layout-noticias {
         gap: 20px;
+    }
+
+    .conteudo-principal {
+        grid-template-columns: 1fr;
     }
 }
