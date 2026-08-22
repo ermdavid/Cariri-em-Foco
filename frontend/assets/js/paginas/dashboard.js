@@ -13,6 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('nav');
+    const toggle = document.querySelector('.nav-toggle');
+
+    if (!nav || !toggle) {
+        return;
+    }
+
+    toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    });
+});
+
+
 const API_URL = '/api';
 
 let chartCidades = null;
@@ -241,159 +258,3 @@ async function carregarTabela() {
         console.error('Erro ao carregar tabela:', err);
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form-contato');
-    if (!form) {
-        return;
-    }
-
-    const campos = {
-        nome: document.getElementById('contato-nome'),
-        email: document.getElementById('contato-email'),
-        telefone: document.getElementById('contato-telefone'),
-        assunto: document.getElementById('contato-assunto'),
-        mensagem: document.getElementById('contato-mensagem')
-    };
-
-    const statusFormulario = document.getElementById('status-formulario');
-    const contadorMensagem = document.getElementById('contador-mensagem');
-    const MENSAGEM_MIN = 15;
-    const MENSAGEM_MAX = 600;
-
-    const REGEX_NOME = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]{3,80}$/;
-    const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    const REGEX_TELEFONE = /^[\d\s()+-]{8,20}$/;
-
-    // Regras de validação de cada campo. Cada função retorna uma mensagem de
-    // erro (string) ou uma string vazia quando o valor é válido.
-    const validadores = {
-        nome(valor) {
-            if (!valor.trim()) return 'Informe o seu nome.';
-            if (!REGEX_NOME.test(valor.trim())) return 'Use apenas letras e espaços (mínimo 3 caracteres).';
-            return '';
-        },
-        email(valor) {
-            if (!valor.trim()) return 'Informe um e-mail para retorno.';
-            if (!REGEX_EMAIL.test(valor.trim())) return 'Digite um e-mail em um formato válido, ex.: nome@email.com.';
-            return '';
-        },
-        telefone(valor) {
-            if (!valor.trim()) return ''; // campo opcional
-            if (!REGEX_TELEFONE.test(valor.trim())) return 'Digite um telefone válido (apenas números, espaços, ( ) e -).';
-            return '';
-        },
-        assunto(valor) {
-            if (!valor) return 'Selecione o assunto da mensagem.';
-            return '';
-        },
-        mensagem(valor) {
-            const tamanho = valor.trim().length;
-            if (!tamanho) return 'Escreva sua mensagem.';
-            if (tamanho < MENSAGEM_MIN) return `Sua mensagem precisa ter pelo menos ${MENSAGEM_MIN} caracteres.`;
-            if (tamanho > MENSAGEM_MAX) return `Sua mensagem pode ter no máximo ${MENSAGEM_MAX} caracteres.`;
-            return '';
-        }
-    };
-
-    function exibirErro(nomeCampo, mensagemErro) {
-        const campo = campos[nomeCampo];
-        const spanErro = document.getElementById(`erro-${nomeCampo}`);
-        if (!campo) return;
-
-        if (mensagemErro) {
-            campo.classList.add('campo-invalido');
-            campo.setAttribute('aria-invalid', 'true');
-            if (spanErro) spanErro.textContent = mensagemErro;
-        } else {
-            campo.classList.remove('campo-invalido');
-            campo.removeAttribute('aria-invalid');
-            if (spanErro) spanErro.textContent = '';
-        }
-    }
-
-    function validarCampo(nomeCampo) {
-        const campo = campos[nomeCampo];
-        if (!campo) return true;
-        const mensagemErro = validadores[nomeCampo](campo.value);
-        exibirErro(nomeCampo, mensagemErro);
-        return mensagemErro === '';
-    }
-
-    // Validação em tempo real (ao sair do campo e ao digitar, quando já há erro)
-    Object.keys(campos).forEach((nomeCampo) => {
-        const campo = campos[nomeCampo];
-        if (!campo) return;
-
-        campo.addEventListener('blur', () => validarCampo(nomeCampo));
-        campo.addEventListener('input', () => {
-            if (campo.classList.contains('campo-invalido')) {
-                validarCampo(nomeCampo);
-            }
-        });
-    });
-
-    // Contador de caracteres da mensagem
-    if (campos.mensagem && contadorMensagem) {
-        const atualizarContador = () => {
-            const restantes = MENSAGEM_MAX - campos.mensagem.value.length;
-            contadorMensagem.textContent = `${campos.mensagem.value.length}/${MENSAGEM_MAX} caracteres`;
-            contadorMensagem.classList.toggle('contador-limite', restantes < 0);
-        };
-        campos.mensagem.addEventListener('input', atualizarContador);
-        atualizarContador();
-    }
-
-    function mostrarStatus(tipo, mensagem) {
-        if (!statusFormulario) return;
-        statusFormulario.textContent = mensagem;
-        statusFormulario.className = `status-formulario status-${tipo}`;
-        statusFormulario.hidden = false;
-        statusFormulario.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    form.addEventListener('submit', (evento) => {
-        evento.preventDefault();
-
-        const nomesCampos = Object.keys(campos);
-        const resultados = nomesCampos.map((nomeCampo) => validarCampo(nomeCampo));
-        const formularioValido = resultados.every(Boolean);
-
-        if (!formularioValido) {
-            mostrarStatus('erro', 'Não foi possível enviar. Corrija os campos destacados em vermelho.');
-            const primeiroCampoInvalido = nomesCampos.find((nomeCampo) => campos[nomeCampo]?.classList.contains('campo-invalido'));
-            campos[primeiroCampoInvalido]?.focus();
-            return;
-        }
-
-        // Não há back-end de envio real: simulamos a confirmação para o usuário.
-        const nomeDigitado = campos.nome.value.trim().split(' ')[0];
-        mostrarStatus('sucesso', `Obrigado, ${nomeDigitado}! Sua mensagem foi enviada com sucesso. Nossa equipe responderá em breve pelo e-mail informado.`);
-
-        form.reset();
-        nomesCampos.forEach((nomeCampo) => exibirErro(nomeCampo, ''));
-        if (contadorMensagem) contadorMensagem.textContent = `0/${MENSAGEM_MAX} caracteres`;
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const perguntas = document.querySelectorAll('.faq-pergunta');
-    if (!perguntas.length) {
-        return;
-    }
-
-    perguntas.forEach((botao) => {
-        botao.addEventListener('click', () => {
-            const item = botao.closest('.faq-item');
-            const resposta = document.getElementById(botao.getAttribute('aria-controls'));
-            const abrindo = botao.getAttribute('aria-expanded') !== 'true';
-
-            botao.setAttribute('aria-expanded', String(abrindo));
-            item?.classList.toggle('faq-item-aberto', abrindo);
-
-            if (resposta) {
-                resposta.style.maxHeight = abrindo ? `${resposta.scrollHeight}px` : null;
-            }
-        });
-    });
-});
