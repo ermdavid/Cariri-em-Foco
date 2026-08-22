@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de notícias da região do Cariri">
+
+    <title>Cariri em Foco | Portal de Notícias</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/variaveis.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/noticia_destaque.css">
+    <link rel="stylesheet" href="assets/css/card-noticia.css">
+    <link rel="stylesheet" href="assets/css/barra-lateral.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/cariri-em-dados.css">
+    <link rel="stylesheet" href="assets/css/noticia.css">
+
+    <script src="assets/js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1><a href="index.html">CARIRI <span>EM FOCO</span></a></h1>
+            <p>O portal de notícias da região do Cariri</p>
+        </div>
+    </header>
+
+    <!-- Menu de navegação -->
+    <nav aria-label="Menu principal">
+        <div class="nav-wrapper">
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="menu-principal">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#política">Política</a></li>
+                <li><a href="index.html#economia">Economia</a></li>
+                <li><a href="paginas/integrantes.html">Integrantes</a></li>
+                <li><a href="index.html#cultura">Cultura</a></li>
+                <li><a href="index.html#meioambiente">Meio Ambiente</a></li>
+                <li><a href="index.html#esportes">Esportes</a></li>
+                <li><a href="paginas/contato.html">Fale Conosco</a></li>
+                <li><a href="cariri-em-dados.html" class="btn-cariri-dados">Cariri em Dados</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="container-noticia">
+        <article class="conteudo-noticia">
+            
+            <!-- TROCAMOS <header> POR <div> PARA EVITAR O FUNDO PRETO -->
+            <div class="cabecalho-noticia">
+                <span class="categoria-noticia">Politica</span>
+                
+                <h1 class="titulo-noticia">Justiça Eleitoral recebeu duas denúncias nos primeiros dias de campanha no Cariri</h1>
+                
+                <h2 class="subtitulo-noticia">Cargos de deputado federal e estadual lideram denúncias no Ceará</h2>
+                
+                <div class="meta-noticia">
+                    <span>Por Redação Cariri em Foco</span>
+                    <time>Atualizado há 3 horas</time>
+                </div>
+            </div>
+
+            <!-- IMAGEM CENTRALIZADA -->
+            <figure class="imagem-principal">
+                <img src="./assets/img/candidato.jpeg" alt="Imagem de candidato">
+                <figcaption>Foto: Imagem gerada por IA</figcaption>
+            </figure>
+
+            <!-- TEXTO DA MATÉRIA -->
+            <div class="texto-noticia">
+                <p>No Brasil, a Justiça Eleitoral já recebeu mais de 1.200 denúncias de propaganda irregular desde o início da  campanha eleitoral de 2026, no domingo (16). No Ceará, já foram contabilizadas 75 denúncias em 13 municípios - sendo duas no Cariri, ambas em Juazeiro do Norte.</p>
+                
+                <blockquote class="citacao-noticia">
+                    "No Estado, o cargo mais denunciado é o de deputado federal, com 27 registros, seguido pelo de deputado estadual, com 18 casos."
+                </blockquote>
+
+                <p>O tipo mais frequente das denúncias envolve a campanha pela internet, com 26 ocorrências. As queixas podem ser feitas pelo aplicativo Pardal, ferramenta disponibilizada pelo  Tribunal Superior Eleitoral (TSE).</p>
+
+                <p>Confira dados abaixo</p>
+
+                <table class="tabela">
+                    <tbody>
+                        <tr>
+                            <th>
+                                <strong> Municipio </strong>
+                            </th>
+                            <th>
+                                <strong> Denúncias </strong>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>Fortaleza</td>
+                            <td>51</td>
+                        </tr>
+                        <tr>
+                            <td>Iguatu</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>Camocim</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Aracati</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Frecheirinha</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Juazeiro do Norte</strong></td>
+                            <td><strong>2</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Parambu</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Sobral</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Alcântaras</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Canindé</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Ipú</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Nova Russas</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <figcaption>Fonte: Levantamento do Jornal do Cariri junto ao TSE</figcaption>
+            </div>
+            
+        </article>
+    </main>
+
+    <footer class="footer-principal">
+        <div class="footer-conteudo">
+            
+            <div class="coluna-footer sobre">
+                <h3 class="logo-footer">CARIRI <span>EM FOCO</span></h3>
+                <p class="sobre-footer">
+                    O seu portal de notícias da região do Cariri. Informação de qualidade, jornalismo independente e cobertura local.
+                </p>
+            </div>
+
+            <div class="coluna-footer">
+                <h4>Editorias</h4>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Política</a></li>
+                    <li><a href="#">Economia</a></li>
+                    <li><a href="#">Cultura</a></li>
+                    <li><a href="#">Meio Ambiente</a></li>
+                    <li><a href="#">Esportes</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="paginas/contato.html">Fale Conosco</a></li>
+                    <li><a href="paginas/integrantes.html">Integrantes</a></li>
+                    <li><a href="cariri-em-dados.html" class="link-dados">Cariri em Dados</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-copyright">
+            <p>© 2026 Cariri em Foco. Todos os direitos reservados.</p>
+            <p class="subtexto-creditos">Desenvolvido para as disciplinas de Programação para Web e Projeto Integrado III.</p>
+        </div>
+    </footer>
+</body>
+</html>

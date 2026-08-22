@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de notícias da região do Cariri">
+
+    <title>Cariri em Foco | Portal de Notícias</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/variaveis.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/noticia_destaque.css">
+    <link rel="stylesheet" href="assets/css/card-noticia.css">
+    <link rel="stylesheet" href="assets/css/barra-lateral.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/cariri-em-dados.css">
+    <link rel="stylesheet" href="assets/css/noticia.css">
+
+    <script src="assets/js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1><a href="index.html">CARIRI <span>EM FOCO</span></a></h1>
+            <p>O portal de notícias da região do Cariri</p>
+        </div>
+    </header>
+
+    <!-- Menu de navegação -->
+    <nav aria-label="Menu principal">
+        <div class="nav-wrapper">
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="menu-principal">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#política">Política</a></li>
+                <li><a href="index.html#economia">Economia</a></li>
+                <li><a href="paginas/integrantes.html">Integrantes</a></li>
+                <li><a href="index.html#cultura">Cultura</a></li>
+                <li><a href="index.html#meioambiente">Meio Ambiente</a></li>
+                <li><a href="index.html#esportes">Esportes</a></li>
+                <li><a href="paginas/contato.html">Fale Conosco</a></li>
+                <li><a href="cariri-em-dados.html" class="btn-cariri-dados">Cariri em Dados</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="container-noticia">
+        <article class="conteudo-noticia">
+            
+            <!-- TROCAMOS <header> POR <div> PARA EVITAR O FUNDO PRETO -->
+            <div class="cabecalho-noticia">
+                <span class="categoria-noticia">Esporte</span>
+                
+                <h1 class="titulo-noticia">Icasa vence Crateús e retorna à Série A do Campeonato Cearense em 2027 </h1>
+                
+                <h2 class="subtitulo-noticia">Andrey, Tiaguinho e Max Oliveira marcaram os gols da vitória que garantiu o acesso do Icasa para a Série A do Campeonato Cearense 2027</h2>
+                
+                <div class="meta-noticia">
+                    <span>Por Redação Cariri em Foco</span>
+                    <time>Atualizado há 2 meses</time>
+                </div>
+            </div>
+
+            <!-- IMAGEM CENTRALIZADA -->
+            <figure class="imagem-principal">
+                <img src="./assets/img/icasa_jogador.avif" alt="Icasa_jogador">
+                <figcaption>Foto: Herbesson Fotos</figcaption>
+            </figure>
+
+            <!-- TEXTO DA MATÉRIA -->
+            <div class="texto-noticia">
+                <p>O Icasa venceu o Crateús por 3 a 0 neste sábado (30), na Arena Romeirão, e carimbou seu retorno à elite do Campeonato Cearense em 2027. Andrey, Tiaguinho e Max Oliveira marcaram os gols da vitória do time caririense pelo jogo da volta da semifinal da segunda divisão do estadual.</p>
+                
+                <p>Depois do empate sem gols na primeiro partida, que ocorreu no estádio Juvenal Melo, o confronto ficou em aberto para o duelo da volta em Juazeiro do Norte.</p>
+
+                <p>Com o apoio do seu torcedor, o time de Raimundo Wagner aplicou 3 a 0 no Crateús para garantir vaga na final da segunda divisão Cearense e, consequentemente, subir à elite do futebol estadual.</p>
+
+                <h2><strong>Longe da elite</strong></h2>
+
+                <p>A última vez que o Icasa disputou a Série A do Campeonato Cearense foi em 2022. Depois de quatro temporadas na segunda divisão, a equipe do Cariri voltará a figurar entre os dez melhores times do cenário estadual.</p>
+
+                <p>A outra vaga será decidida entre Itapipoca e Crato, que entram em campo neste domingo (31), às 15h, no estádio Perilo Teixeira. As duas equipes ficaram no empate em 2 a 2 no Mirandão, na primeira partida da semifinal.</p>
+            </div>
+            
+        </article>
+    </main>
+
+    <footer class="footer-principal">
+        <div class="footer-conteudo">
+            
+            <div class="coluna-footer sobre">
+                <h3 class="logo-footer">CARIRI <span>EM FOCO</span></h3>
+                <p class="sobre-footer">
+                    O seu portal de notícias da região do Cariri. Informação de qualidade, jornalismo independente e cobertura local.
+                </p>
+            </div>
+
+            <div class="coluna-footer">
+                <h4>Editorias</h4>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Política</a></li>
+                    <li><a href="#">Economia</a></li>
+                    <li><a href="#">Cultura</a></li>
+                    <li><a href="#">Meio Ambiente</a></li>
+                    <li><a href="#">Esportes</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="paginas/contato.html">Fale Conosco</a></li>
+                    <li><a href="paginas/integrantes.html">Integrantes</a></li>
+                    <li><a href="cariri-em-dados.html" class="link-dados">Cariri em Dados</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-copyright">
+            <p>© 2026 Cariri em Foco. Todos os direitos reservados.</p>
+            <p class="subtexto-creditos">Desenvolvido para as disciplinas de Programação para Web e Projeto Integrado III.</p>
+        </div>
+    </footer>
+</body>
+</html>
