@@ -16,7 +16,7 @@ O **Cariri em Foco** é uma plataforma web para acompanhamento de notícias e es
 * **Backend:** Python 3.12, Flask, Flask-CORS, SQLAlchemy
 * **Autenticação:** JWT (PyJWT) e hash de senha com Werkzeug
 * **ETL & Dados:** Pandas, PyArrow, NumPy
-* **Banco de Dados:** PostgreSQL 15
+* **Banco de Dados:** PostgreSQL 15 (com view, function e trigger)
 * **Testes:** pytest (unitários e de integração)
 * **Orquestração:** Docker, Docker Compose
 
