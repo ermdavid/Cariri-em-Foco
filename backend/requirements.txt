@@ -6,3 +6,6 @@ numpy
 sqlalchemy
 python-dotenv
 pyarrow
+PyJWT
+Werkzeug
+pytest
