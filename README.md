@@ -14,8 +14,10 @@ O **Cariri em Foco** é uma plataforma web para acompanhamento de notícias e es
 
 * **Frontend:** HTML5, CSS3, JavaScript (ES6+), Nginx
 * **Backend:** Python 3.12, Flask, Flask-CORS, SQLAlchemy
+* **Autenticação:** JWT (PyJWT) e hash de senha com Werkzeug
 * **ETL & Dados:** Pandas, PyArrow, NumPy
 * **Banco de Dados:** PostgreSQL 15
+* **Testes:** pytest (unitários e de integração)
 * **Orquestração:** Docker, Docker Compose
 
 ---
@@ -64,6 +66,23 @@ docker compose up -d --build
 
 * **Portal Web / Dashboard:** http://localhost:8080
 * **Painel de Dados:** http://localhost:8080/cariri-em-dados.html
+* **Login da Redação:** http://localhost:8080/login.html
+
+> Credenciais padrão de desenvolvimento: `admin@caririemfoco.com.br` / `cariri2026`
+> (configuráveis pelas variáveis `ADMIN_EMAIL` e `ADMIN_SENHA`).
+
+---
+
+## 🧪 Testes
+
+```bash
+# Testes unitários e de integração (com o sistema no ar):
+docker compose exec backend sh -c "cd backend && pytest -v"
+```
+
+A documentação completa está em [`docs/`](docs/): API (`api.md`), Manual Técnico
+(`manual-tecnico.md`), Manual do Usuário (`manual-usuario.md`) e Relatório Final
+(`relatorio-final.md`).
 
 ---
 
