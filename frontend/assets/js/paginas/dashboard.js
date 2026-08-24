@@ -30,8 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const API_URL = '/api';
-
 let chartCidades = null;
 let chartTipos = null;
 
