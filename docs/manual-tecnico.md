@@ -36,8 +36,10 @@ Docker Compose, comunicando-se por HTTP/JSON:
 │   └── tests/              # Testes unitários e de integração
 ├── database/
 │   ├── schema.sql          # DDL: tabelas, chaves estrangeiras e índices
+│   ├── objetos.sql         # View, function e trigger
 │   ├── seeds.py            # ETL das ocorrências
 │   ├── seed_auth.py        # Usuário administrador e notícias de exemplo
+│   ├── apply_objetos.py    # Aplica o objetos.sql na inicialização
 │   └── dados_sspds.parquet
 ├── frontend/               # HTML, CSS, JS e nginx.conf
 ├── docs/                   # Documentação (este manual, API, manual do usuário)
@@ -59,6 +61,16 @@ Seis tabelas em Terceira Forma Normal (3FN):
 `ocorrencia(municipio_id, categoria_id)`, além de `detalhe_vitima(ocorrencia_id)`
 e índices de apoio em `noticia`. Esses índices sustentam o requisito de resposta
 inferior a 2 segundos sobre a base histórica.
+
+**Objetos de banco (`database/objetos.sql`):** além das tabelas, o banco define
+uma view, uma function e uma trigger, aplicadas automaticamente na inicialização
+por `apply_objetos.py`:
+- `vw_ocorrencias_por_municipio`: view que consolida a contagem de ocorrências
+  por município e categoria, com os nomes já resolvidos.
+- `fn_total_ocorrencias_municipio(id)`: function que retorna o total de
+  ocorrências de um município.
+- `trg_noticia_atualizada`: trigger que, a cada `UPDATE` em `noticia`, preenche
+  a coluna `atualizado_em` com a data e hora da alteração.
 
 ## 4. Autenticação e segurança
 
@@ -127,3 +139,6 @@ docker compose down -v            # parar e apagar os dados do banco
   paginação e tokens testável sem subir banco ou servidor.
 - **Seed idempotente:** `seed_auth.py` pode rodar repetidamente sem duplicar
   registros, e o hash da senha é gerado no ambiente de execução.
+- **Objetos de banco reexecutáveis:** view, function e trigger usam
+  `CREATE OR REPLACE` / `IF NOT EXISTS`, podendo ser reaplicados a cada boot sem
+  erro, e são executados via SQLAlchemy (sem depender do cliente `psql`).
