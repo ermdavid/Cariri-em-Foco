@@ -56,3 +56,36 @@ CREATE TABLE detalhe_vitima (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
+-- 5. Tabela de Usuários (Redação / acesso administrativo)
+CREATE TABLE usuario (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(120) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha_hash VARCHAR(255) NOT NULL,
+    criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 6. Tabela de Notícias (gerenciadas pela redação via painel administrativo)
+CREATE TABLE noticia (
+    id SERIAL PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    subtitulo VARCHAR(300),
+    categoria VARCHAR(50),
+    autor VARCHAR(120),
+    conteudo TEXT NOT NULL,
+    imagem_url VARCHAR(500),
+    publicado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Filtros do dashboard incidem sobre municipio_id, categoria_id e data_hora.
+CREATE INDEX idx_ocorrencia_municipio   ON ocorrencia (municipio_id);
+CREATE INDEX idx_ocorrencia_categoria   ON ocorrencia (categoria_id);
+CREATE INDEX idx_ocorrencia_data_hora   ON ocorrencia (data_hora);
+-- Índice composto para consultas que cruzam município e categoria simultaneamente.
+CREATE INDEX idx_ocorrencia_muni_cat    ON ocorrencia (municipio_id, categoria_id);
+-- Join frequente entre detalhe_vitima e ocorrencia (KPI de vítimas).
+CREATE INDEX idx_detalhe_ocorrencia     ON detalhe_vitima (ocorrencia_id);
+-- Listagem de notícias por editoria e ordenação temporal.
+CREATE INDEX idx_noticia_categoria      ON noticia (categoria);
+CREATE INDEX idx_noticia_publicado_em   ON noticia (publicado_em DESC);
