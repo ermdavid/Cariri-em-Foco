@@ -53,6 +53,12 @@ Processo responsável por executar scripts de ETL, manter a integridade do banco
 ### RF09 – Provedor de API REST
 **Descrição:** O backend em Python deve disponibilizar endpoints em formato JSON para fornecimento dos dados filtrados ao frontend JavaScript.
 
+### RF10 – Autenticação da Redação
+**Descrição:** O sistema deve oferecer autenticação por e-mail e senha para a equipe editorial, emitindo um token de sessão (JWT) e protegendo as rotas de escrita de conteúdo. As senhas devem ser armazenadas exclusivamente como hash.
+
+### RF11 – Gestão de Notícias (CRUD)
+**Descrição:** Usuários autenticados devem poder cadastrar, editar e excluir notícias por meio de um painel administrativo, enquanto a leitura das notícias permanece pública.
+
 ---
 
 ## 4. Requisitos Não Funcionais (RNF)
