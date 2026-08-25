@@ -65,6 +65,15 @@
     border-top: 4px solid var(--vermelho);
 }
 
+#card-kpi-cidade {
+    order: 3;
+}
+
+#card-kpi-armas,
+#card-kpi-drogas {
+    order: 2;
+}
+
 .titulo-kpi {
     display: block;
     font-family: var(--fonte-subtitulo-1);
@@ -96,6 +105,15 @@
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    min-width: 0;
+    overflow: hidden;
+}
+
+.card-grafico canvas {
+    display: block;
+    width: 100% !important;
+    max-width: 100%;
+    height: calc(100% - 55px) !important;
 }
 
 .card-grafico h3 {

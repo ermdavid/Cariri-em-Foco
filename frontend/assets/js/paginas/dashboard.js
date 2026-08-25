@@ -1,48 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('nav');
-    const toggle = document.querySelector('.nav-toggle');
-
-    if (!nav || !toggle) {
-        return;
-    }
-
-    toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-    });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('nav');
-    const toggle = document.querySelector('.nav-toggle');
-
-    if (!nav || !toggle) {
-        return;
-    }
-
-    toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-    });
-});
-
-
-const API_URL = '/api';
-
+// Instâncias globais dos gráficos para permitir destruição e recriação dinâmica
 let chartCidades = null;
 let chartTipos = null;
+let chartAno = null;
+let chartPeriodo = null;
+let chartSazonalidade = null;
+let chartGenero = null;
 
+// Controle de Paginação
 let paginaAtual = 1;
 const itensPorPagina = 10;
 
 document.addEventListener('DOMContentLoaded', () => {
-    carregarFiltros();
-    atualizarDashboard();
+    inicializarDashboard();
 
-    // Eventos nos filtros
+    // Eventos de alteração nos seletores de filtro
     document.getElementById('select-cidade')?.addEventListener('change', () => {
         paginaAtual = 1;
         atualizarDashboard();
@@ -53,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         atualizarDashboard();
     });
 
-    // Controles de paginação
+    // Eventos dos botões de paginação
     document.getElementById('btn-anterior')?.addEventListener('click', () => {
         if (paginaAtual > 1) {
             paginaAtual--;
@@ -67,7 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// 1. Carrega as opções de filtro vindo do banco de dados
+async function inicializarDashboard() {
+    await carregarFiltros();
+    await atualizarDashboard();
+}
+
+// 1. Carrega as opções dos seletores de filtro vindo do banco de dados
 async function carregarFiltros() {
     try {
         const res = await fetch(`${API_URL}/filtros`);
@@ -93,7 +69,7 @@ async function carregarFiltros() {
     }
 }
 
-// Retorna os parâmetros de query string selecionados
+// Retorna os parâmetros de busca formatados para a URL
 function obterParametrosFiltro() {
     const muniId = document.getElementById('select-cidade')?.value;
     const catId = document.getElementById('select-crime')?.value;
@@ -105,25 +81,50 @@ function obterParametrosFiltro() {
     return params.toString();
 }
 
-// Atualiza todos os componentes do dashboard
+// Função principal que orquestra a atualização de todo o painel
 async function atualizarDashboard() {
     carregarKPIs();
     carregarGraficoCidades();
     carregarGraficoTipos();
+    carregarGraficoAno();
+    carregarGraficoPeriodo();
+    carregarGraficoSazonalidade();
+    carregarPerfilVitimas();
     carregarTabela();
 }
 
-// 2. Preenche os cards de KPIs
+// 2. Preenche os Cards de Resumo (KPIs e Métricas)
 async function carregarKPIs() {
     try {
         const query = obterParametrosFiltro();
+        const possuiCrimeSelecionado = Boolean(document.getElementById('select-crime')?.value);
+        const cardCrime = document.getElementById('card-kpi-crime');
+        const cardIdade = document.getElementById('card-kpi-idade');
+        const cardArmas = document.getElementById('card-kpi-armas');
+        const cardDrogas = document.getElementById('card-kpi-drogas');
 
-        // Total de ocorrências
+        if (cardCrime) cardCrime.hidden = false;
+        if (cardIdade) cardIdade.hidden = true;
+        if (cardArmas) cardArmas.hidden = true;
+        if (cardDrogas) cardDrogas.hidden = true;
+
+        // Total Geral, Armas e Drogas apreendidas
         const resKpis = await fetch(`${API_URL}/kpis?${query}`);
         const dataKpis = await resKpis.json();
         
         const elTotal = document.getElementById('kpi-total');
-        if (elTotal) elTotal.innerText = dataKpis.total_ocorrencias.toLocaleString('pt-BR');
+        if (elTotal) elTotal.innerText = (dataKpis.total_ocorrencias || 0).toLocaleString('pt-BR');
+
+        const elArmas = document.getElementById('kpi-armas');
+        const elDrogas = document.getElementById('kpi-drogas');
+        if (elArmas && elDrogas) {
+            const armas = Number(dataKpis.total_armas) || 0;
+            const drogas = Number(dataKpis.total_drogas_kg) || 0;
+            if (cardArmas) cardArmas.hidden = !possuiCrimeSelecionado || armas === 0;
+            if (cardDrogas) cardDrogas.hidden = !possuiCrimeSelecionado || drogas === 0;
+            elArmas.innerText = `${armas} armas`;
+            elDrogas.innerText = `${drogas.toFixed(1)} kg`;
+        }
 
         // Cidade com maior número de ocorrências
         const resMuni = await fetch(`${API_URL}/ocorrencias/municipio?${query}`);
@@ -133,19 +134,12 @@ async function carregarKPIs() {
             elCidadeTop.innerText = dataMuni.length > 0 ? dataMuni[0].municipio : '--';
         }
 
-        // Crime com maior prevalência
-        const resCat = await fetch(`${API_URL}/ocorrencias/categoria?${query}`);
-        const dataCat = await resCat.json();
-        const elCrimeTop = document.getElementById('kpi-crime-top');
-        if (elCrimeTop) {
-            elCrimeTop.innerText = dataCat.length > 0 ? dataCat[0].categoria : '--';
-        }
     } catch (err) {
         console.error('Erro ao carregar KPIs:', err);
     }
 }
 
-// 3. Renderiza o gráfico de barras por Município
+// 3. Gráfico 1: Ocorrências por Município (Barras)
 async function carregarGraficoCidades() {
     try {
         const query = obterParametrosFiltro();
@@ -167,15 +161,13 @@ async function carregarGraficoCidades() {
                 datasets: [{
                     label: 'Ocorrências',
                     data: valores,
-                    backgroundColor: '#198754'
+                    backgroundColor: '#2D6A4F'
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
-                }
+                plugins: { legend: { display: false } }
             }
         });
     } catch (err) {
@@ -183,7 +175,7 @@ async function carregarGraficoCidades() {
     }
 }
 
-// 4. Renderiza o gráfico donut por Categoria de Crime
+// 4. Gráfico 2: Distribuição por Tipo de Crime (Doughnut)
 async function carregarGraficoTipos() {
     try {
         const query = obterParametrosFiltro();
@@ -220,7 +212,189 @@ async function carregarGraficoTipos() {
     }
 }
 
-// 5. Preenche a tabela com dados paginados
+// 5. Gráfico 3: Evolução Temporal por Ano (Linha)
+async function carregarGraficoAno() {
+    try {
+        const query = obterParametrosFiltro();
+        const res = await fetch(`${API_URL}/ocorrencias/evolucao-anual?${query}`);
+        const data = await res.json();
+
+        if (chartAno) chartAno.destroy();
+
+        const ctx = document.getElementById('graficoEvolucaoAno')?.getContext('2d');
+        if (!ctx) return;
+
+        chartAno = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.map(item => item.ano),
+                datasets: [{
+                    label: 'Ocorrências por Ano',
+                    data: data.map(item => item.total),
+                    borderColor: '#B8101F',
+                    backgroundColor: 'rgba(184, 16, 31, 0.1)',
+                    borderWidth: 2,
+                    tension: 0.2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    } catch (err) {
+        console.error('Erro ao carregar gráfico de evolução anual:', err);
+    }
+}
+
+// 6. Gráfico 4: Período / Turno da Ocorrência (Barras)
+async function carregarGraficoPeriodo() {
+    try {
+        const query = obterParametrosFiltro();
+        const res = await fetch(`${API_URL}/ocorrencias/periodo?${query}`);
+        const data = await res.json();
+
+        if (chartPeriodo) chartPeriodo.destroy();
+
+        const ctx = document.getElementById('graficoPeriodo')?.getContext('2d');
+        if (!ctx) return;
+
+        chartPeriodo = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.map(item => item.periodo),
+                datasets: [{
+                    label: 'Total de Registros',
+                    data: data.map(item => item.total),
+                    backgroundColor: '#1A1A1A'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } }
+            }
+        });
+    } catch (err) {
+        console.error('Erro ao carregar gráfico de período:', err);
+    }
+}
+
+// 7. Gráfico 5: Sazonalidade Mensal (Barras)
+async function carregarGraficoSazonalidade() {
+    try {
+        const query = obterParametrosFiltro();
+        const res = await fetch(`${API_URL}/ocorrencias/sazonalidade-mes?${query}`);
+        const data = await res.json();
+
+        if (chartSazonalidade) chartSazonalidade.destroy();
+
+        const ctx = document.getElementById('graficoSazonalidade')?.getContext('2d');
+        if (!ctx) return;
+
+        chartSazonalidade = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.map(item => {
+                    const mes = Number(item.mes_num);
+                    return new Date(2000, mes - 1, 1).toLocaleDateString('pt-BR', { month: 'long' });
+                }),
+                datasets: [{
+                    label: 'Volume Acumulado por Mês',
+                    data: data.map(item => item.total),
+                    backgroundColor: '#666666'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } }
+            }
+        });
+    } catch (err) {
+        console.error('Erro ao carregar gráfico de sazonalidade:', err);
+    }
+}
+
+// 8. Gráfico 6 & KPI: Perfil das Vítimas (Gênero e Idade Média)
+async function carregarPerfilVitimas() {
+    try {
+        const query = obterParametrosFiltro();
+        const res = await fetch(`${API_URL}/ocorrencias/perfil-vitimas?${query}`);
+        const data = await res.json();
+
+        // Preenche o KPI da Idade Média
+        const elIdade = document.getElementById('kpi-idade-media');
+        const elCrimeTop = document.getElementById('kpi-crime-top');
+        const tituloCrime = document.getElementById('titulo-kpi-crime');
+        const possuiCrimeSelecionado = Boolean(document.getElementById('select-crime')?.value);
+        const possuiIdadeMedia = possuiCrimeSelecionado
+            && data.idade_media !== '--'
+            && data.idade_media !== null;
+
+        if (elIdade) {
+            elIdade.innerText = possuiIdadeMedia
+                ? `${data.idade_media} anos` 
+                : '--';
+        }
+
+        if (possuiIdadeMedia && elCrimeTop && tituloCrime) {
+            const cardCrime = document.getElementById('card-kpi-crime');
+            if (cardCrime) cardCrime.hidden = false;
+            tituloCrime.innerText = 'Idade Média da Vítima';
+            elCrimeTop.innerText = `${data.idade_media} anos`;
+        } else if (elCrimeTop && tituloCrime) {
+            const cardCrime = document.getElementById('card-kpi-crime');
+            if (!possuiCrimeSelecionado) {
+                if (cardCrime) cardCrime.hidden = false;
+                const resCat = await fetch(`${API_URL}/ocorrencias/categoria?${query}`);
+                const dataCat = await resCat.json();
+                tituloCrime.innerText = 'Crime Predominante';
+                elCrimeTop.innerText = dataCat.length > 0 ? dataCat[0].categoria : '--';
+            } else {
+                const resKpis = await fetch(`${API_URL}/kpis?${query}`);
+                const dataKpis = await resKpis.json();
+                const possuiApreensao = Number(dataKpis.total_armas) > 0
+                    || Number(dataKpis.total_drogas_kg) > 0;
+
+                if (possuiApreensao) {
+                    if (cardCrime) cardCrime.hidden = true;
+                } else {
+                    const resPeriodo = await fetch(`${API_URL}/ocorrencias/periodo?${query}`);
+                    const dataPeriodo = await resPeriodo.json();
+                    if (cardCrime) cardCrime.hidden = false;
+                    tituloCrime.innerText = 'Turno mais perigoso';
+                    elCrimeTop.innerText = dataPeriodo.length > 0 ? dataPeriodo[0].periodo : '--';
+                }
+            }
+        }
+
+        if (chartGenero) chartGenero.destroy();
+
+        const ctx = document.getElementById('graficoGenero')?.getContext('2d');
+        if (!ctx) return;
+
+        chartGenero = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: data.generos.map(g => g.genero),
+                datasets: [{
+                    data: data.generos.map(g => g.total),
+                    backgroundColor: ['#2D6A4F', '#B8101F', '#ffc107', '#6c757d']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    } catch (err) {
+        console.error('Erro ao carregar perfil das vítimas:', err);
+    }
+}
+
+// 9. Preenche a Tabela Detalhada das Ocorrências com Paginação
 async function carregarTabela() {
     try {
         const query = obterParametrosFiltro();
@@ -243,7 +417,7 @@ async function carregarTabela() {
             `;
         });
 
-        // Atualiza indicadores de paginação
+        // Atualiza os controles de paginação
         const elInfoPagina = document.getElementById('info-pagina');
         if (elInfoPagina) {
             elInfoPagina.innerText = `Página ${data.pagina_atual} de ${data.total_paginas.toLocaleString('pt-BR')}`;

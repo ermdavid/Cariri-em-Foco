@@ -343,5 +343,99 @@ def ocorrencias_detalhada():
         "registros": [dict(r) for r in results]
     }), 200
 
+# 7. GET /api/ocorrencias/evolucao-anual
+@app.route('/api/ocorrencias/evolucao-anual', methods=['GET'])
+def evolucao_anual():
+    muni_id = request.args.get('municipio_id')
+    cat_id = request.args.get('categoria_id')
+    
+    where_clauses = ["1=1"]
+    params = {}
+    if muni_id: where_clauses.append("municipio_id = :muni_id"); params['muni_id'] = muni_id
+    if cat_id: where_clauses.append("categoria_id = :cat_id"); params['cat_id'] = cat_id
+
+    query = f"""
+        SELECT EXTRACT(YEAR FROM data_hora)::INT as ano, COUNT(id) as total
+        FROM ocorrencia
+        WHERE {" AND ".join(where_clauses)}
+        GROUP BY ano ORDER BY ano ASC;
+    """
+    with engine.connect() as conn:
+        res = conn.execute(text(query), params).mappings().all()
+    return jsonify([dict(r) for r in res]), 200
+
+# 8. GET /api/ocorrencias/periodo
+@app.route('/api/ocorrencias/periodo', methods=['GET'])
+def ocorrencias_periodo():
+    muni_id = request.args.get('municipio_id')
+    cat_id = request.args.get('categoria_id')
+    
+    where_clauses = ["periodo IS NOT NULL"]
+    params = {}
+    if muni_id: where_clauses.append("municipio_id = :muni_id"); params['muni_id'] = muni_id
+    if cat_id: where_clauses.append("categoria_id = :cat_id"); params['cat_id'] = cat_id
+
+    query = f"""
+        SELECT periodo, COUNT(id) as total
+        FROM ocorrencia
+        WHERE {" AND ".join(where_clauses)}
+        GROUP BY periodo ORDER BY total DESC;
+    """
+    with engine.connect() as conn:
+        res = conn.execute(text(query), params).mappings().all()
+    return jsonify([dict(r) for r in res]), 200
+
+# 9. GET /api/ocorrencias/sazonalidade-mes
+@app.route('/api/ocorrencias/sazonalidade-mes', methods=['GET'])
+def sazonalidade_mes():
+    muni_id = request.args.get('municipio_id')
+    cat_id = request.args.get('categoria_id')
+    
+    where_clauses = ["1=1"]
+    params = {}
+    if muni_id: where_clauses.append("municipio_id = :muni_id"); params['muni_id'] = muni_id
+    if cat_id: where_clauses.append("categoria_id = :cat_id"); params['cat_id'] = cat_id
+
+    query = f"""
+        SELECT TO_CHAR(data_hora, 'MM') as mes_num, TO_CHAR(data_hora, 'TCMonth') as mes_nome, COUNT(id) as total
+        FROM ocorrencia
+        WHERE {" AND ".join(where_clauses)}
+        GROUP BY mes_num, mes_nome ORDER BY mes_num ASC;
+    """
+    with engine.connect() as conn:
+        res = conn.execute(text(query), params).mappings().all()
+    return jsonify([dict(r) for r in res]), 200
+
+# 10. GET /api/ocorrencias/perfil-vitimas
+@app.route('/api/ocorrencias/perfil-vitimas', methods=['GET'])
+def perfil_vitimas():
+    muni_id = request.args.get('municipio_id')
+    cat_id = request.args.get('categoria_id')
+    
+    where_clauses = ["1=1"]
+    params = {}
+    if muni_id: where_clauses.append("o.municipio_id = :muni_id"); params['muni_id'] = muni_id
+    if cat_id: where_clauses.append("o.categoria_id = :cat_id"); params['cat_id'] = cat_id
+
+    query_genero = f"""
+        SELECT v.genero, COUNT(v.id) as total
+        FROM detalhe_vitima v
+        JOIN ocorrencia o ON v.ocorrencia_id = o.id
+        WHERE {" AND ".join(where_clauses)} AND v.genero IS NOT NULL
+        GROUP BY v.genero ORDER BY total DESC;
+    """
+    query_idade = f"""
+        SELECT ROUND(AVG(v.idade), 1) as idade_media
+        FROM detalhe_vitima v
+        JOIN ocorrencia o ON v.ocorrencia_id = o.id
+        WHERE {" AND ".join(where_clauses)} AND v.idade IS NOT NULL;
+    """
+    with engine.connect() as conn:
+        generos = conn.execute(text(query_genero), params).mappings().all()
+        idade_med = conn.execute(text(query_idade), params).scalar() or "--"
+
+    return jsonify({"generos": [dict(g) for g in generos], "idade_media": idade_med}), 200
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

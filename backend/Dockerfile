@@ -2,14 +2,14 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY backend/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
 # Dá permissão de execução ao script de entrada
-RUN chmod +x /app/entrypoint.sh
+RUN chmod +x /app/backend/entrypoint.sh
 
 EXPOSE 5000
 
