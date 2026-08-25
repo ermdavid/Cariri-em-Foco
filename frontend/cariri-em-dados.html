@@ -26,7 +26,7 @@
 
     <script src="assets/js/config.js"></script>
     <script src="assets/js/global.js"></script>
-    <script src="assets/js/paginas/dashboard.js"></script>
+    <script src="assets/js/paginas/dashboard.js?v=2"></script>
 </head>
 
 <body>
@@ -88,17 +88,29 @@
             <span class="titulo-kpi">Total de Ocorrências</span>
             <span class="valor-kpi" id="kpi-total">--</span>
         </div>
-        <div class="card-kpi">
-            <span class="titulo-kpi">Crime Predominante</span>
+        <div class="card-kpi" id="card-kpi-crime">
+            <span class="titulo-kpi" id="titulo-kpi-crime">Crime Predominante</span>
             <span class="valor-kpi" id="kpi-crime-top">--</span>
         </div>
-        <div class="card-kpi">
+        <div class="card-kpi" id="card-kpi-cidade">
             <span class="titulo-kpi">Cidade com Maior Índice</span>
             <span class="valor-kpi" id="kpi-cidade-top">--</span>
         </div>
+        <div class="card-kpi" id="card-kpi-idade" hidden>
+            <span class="titulo-kpi">Idade Média da Vítima</span>
+            <span class="valor-kpi" id="kpi-idade-media">--</span>
+        </div>
+        <div class="card-kpi" id="card-kpi-armas" hidden>
+            <span class="titulo-kpi">Apreensões de Armas de Fogo</span>
+            <span class="valor-kpi" id="kpi-armas">--</span>
+        </div>
+        <div class="card-kpi" id="card-kpi-drogas" hidden>
+            <span class="titulo-kpi">Apreensões de Drogas</span>
+            <span class="valor-kpi" id="kpi-drogas">--</span>
+        </div>
     </section>
 
-    <!-- ÁREA DOS GRÁFICOS -->
+    <!-- ÁREA DOS GRÁFICOS (MÓDULO 1) -->
     <section class="grid-graficos">
         <div class="card-grafico" style="position: relative; height: 350px;">
             <h3>Ocorrências por Município</h3>
@@ -107,6 +119,29 @@
         <div class="card-grafico" style="position: relative; height: 350px;">
             <h3>Distribuição por Tipo de Crime</h3>
             <canvas id="graficoTipos"></canvas>
+        </div>
+    </section>
+
+    <!-- ÁREA DOS GRÁFICOS (MÓDULO 2 - NOVOS ANÁLISES) -->
+    <section class="grid-graficos" style="margin-top: 25px;">
+        <div class="card-grafico" style="position: relative; height: 350px;">
+            <h3>Evolução Temporal por Ano</h3>
+            <canvas id="graficoEvolucaoAno"></canvas>
+        </div>
+        <div class="card-grafico" style="position: relative; height: 350px;">
+            <h3>Período/Turno de Maior Incidência</h3>
+            <canvas id="graficoPeriodo"></canvas>
+        </div>
+    </section>
+
+    <section class="grid-graficos" style="margin-top: 25px;">
+        <div class="card-grafico" style="position: relative; height: 350px;">
+            <h3>Sazonalidade Mensal</h3>
+            <canvas id="graficoSazonalidade"></canvas>
+        </div>
+        <div class="card-grafico" style="position: relative; height: 350px;">
+            <h3>Distribuição por Gênero da Vítima</h3>
+            <canvas id="graficoGenero"></canvas>
         </div>
     </section>
 
