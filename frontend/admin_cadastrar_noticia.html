@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Painel administrativo da redação - Cariri em Foco">
+
+    <title>Painel da Redação | Cariri em Foco</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/variaveis.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+
+    <script src="assets/js/config.js"></script>
+</head>
+<body>
+
+    <header class="admin-topo">
+        <div class="admin-marca">
+            <h1>CARIRI <span>EM FOCO</span></h1>
+            <p>Painel da Redação</p>
+        </div>
+        <div class="admin-usuario">
+            <span id="usuario-logado">—</span>
+            <button id="btn-sair" class="btn-sair">Sair</button>
+        </div>
+    </header>
+
+    <main class="admin-container">
+
+        <section class="admin-painel">
+            <h2 id="titulo-form">Cadastrar nova notícia</h2>
+
+            <div id="mensagem" class="admin-mensagem"></div>
+
+            <form id="form-noticia" class="admin-form">
+                <input type="hidden" id="noticia-id">
+
+                <div class="grupo-campo">
+                    <label for="titulo">Título *</label>
+                    <input type="text" id="titulo" required maxlength="200">
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="subtitulo">Subtítulo</label>
+                    <input type="text" id="subtitulo" maxlength="300">
+                </div>
+
+                <div class="grupo-linha">
+                    <div class="grupo-campo">
+                        <label for="categoria">Editoria</label>
+                        <select id="categoria">
+                            <option value="">Selecione</option>
+                            <option value="politica">Política</option>
+                            <option value="economia">Economia</option>
+                            <option value="cultura">Cultura</option>
+                            <option value="esporte">Esporte</option>
+                        </select>
+                    </div>
+                    <div class="grupo-campo">
+                        <label for="autor">Autor</label>
+                        <input type="text" id="autor" maxlength="120">
+                    </div>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="imagem_url">URL da imagem</label>
+                    <input type="text" id="imagem_url" maxlength="500" placeholder="assets/img/...">
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="conteudo">Conteúdo *</label>
+                    <textarea id="conteudo" rows="8" required></textarea>
+                </div>
+
+                <div class="grupo-acoes">
+                    <button type="submit" class="btn-primario">Publicar</button>
+                    <button type="button" id="btn-cancelar" class="btn-secundario" hidden>Cancelar edição</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="admin-painel">
+            <h2>Notícias publicadas</h2>
+            <div id="lista-noticias" class="lista-noticias">
+                <p class="carregando">Carregando...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="assets/js/paginas/admin.js"></script>
+</body>
+</html>
