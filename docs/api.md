@@ -3,6 +3,10 @@
 Base URL (via Nginx): `http://localhost:8080/api`
 Base URL (backend direto): `http://localhost:5000/api`
 
+Todas as respostas são em `application/json` com codificação UTF-8. Datas são
+retornadas já formatadas para exibição. Endpoints de escrita de notícias exigem
+autenticação via token JWT no cabeçalho `Authorization: Bearer <token>`.
+
 ---
 
 ## 1. Saúde do serviço
@@ -133,13 +137,38 @@ Tabela paginada de ocorrências. Parâmetros: `municipio_id`, `categoria_id`, `p
   "total_paginas": 1, "registros": [] }
 ```
 
+### `GET /api/ocorrencias/evolucao-anual`
+Total de ocorrências agregado por ano. Aceita `municipio_id` e/ou `categoria_id`.
+```json
+[ { "ano": 2019, "total": 1420 } ]
+```
+
+### `GET /api/ocorrencias/periodo`
+Total de ocorrências por período do dia (manhã, tarde, noite, madrugada).
+Considera apenas registros com período informado. Aceita `municipio_id` e/ou
+`categoria_id`.
+```json
+[ { "periodo": "NOITE", "total": 820 } ]
+```
+
+### `GET /api/ocorrencias/sazonalidade-mes`
+Total de ocorrências por mês do ano (sazonalidade), com número e nome do mês.
+Aceita `municipio_id` e/ou `categoria_id`.
+```json
+[ { "mes_num": "01", "mes_nome": "Janeiro", "total": 340 } ]
+```
+
+### `GET /api/ocorrencias/perfil-vitimas`
+Perfil das vítimas: distribuição por gênero e idade média. Aceita `municipio_id`
+e/ou `categoria_id`. Quando não há idade informada, `idade_media` retorna `"--"`.
+```json
+{ "generos": [ { "genero": "MASCULINO", "total": 210 } ], "idade_media": 29.4 }
+```
+
 ---
 
 ## Códigos de status utilizados
 `200` OK · `201` criado · `400` requisição inválida · `401` não autenticado ·
-`404` não encontrado.
-
-🔒 = requer cabeçalho `Authorization: Bearer <token>`.
 `404` não encontrado.
 
 🔒 = requer cabeçalho `Authorization: Bearer <token>`.
